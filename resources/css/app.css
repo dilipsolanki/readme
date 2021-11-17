@@ -1,0 +1,282 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.error-word {
+    @apply px-1 border-b-2 border-red-500 cursor-pointer;
+}
+
+.corrected-word-sentence {
+    @apply border-b-2 border-green-400 px-1 cursor-pointer;
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+.tooltip {
+    visibility: hidden;
+    position: absolute
+}
+
+.has-tooltip:hover .tooltip {
+    visibility: visible;
+    z-index: 50;
+}
+
+
+/* 
+.loader {
+display: inline-block;
+width: 130px;
+height: 130px;
+position: relative;
+border: 4px solid #333;
+top: 50%;
+animation: loader 4s infinite ease;
+}
+
+.loader-inner {
+vertical-align: top;
+display: inline-block;
+width: 100%;
+background-color: #DDD;
+animation: loader-inner 4s infinite ease-in;
+}
+
+@keyframes loader {
+0% {
+transform: rotate(0deg);
+}
+
+25% {
+transform: rotate(180deg);
+}
+
+50% {
+transform: rotate(180deg);
+}
+
+75% {
+transform: rotate(360deg);
+}
+
+100% {
+transform: rotate(360deg);
+}
+}
+
+@keyframes loader-inner {
+0% {
+height: 0%;
+}
+
+25% {
+height: 0%;
+}
+
+50% {
+height: 100%;
+}
+
+75% {
+height: 100%;
+}
+
+100% {
+height: 0%;
+}
+} */
+
+#dots #dot1 {
+    animation: load 1s infinite;
+}
+
+#dots #dot2 {
+    animation: load 1s infinite;
+    animation-delay: 0.2s;
+}
+
+#dots #dot3 {
+    animation: load 1s infinite;
+    animation-delay: 0.4s;
+}
+
+@keyframes load {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* Toggle B */
+
+input:checked~.line {
+    /*background-color: #3eff65;*/
+    @apply bg-blue-600;
+}
+
+input:checked~.dot {
+    transform: translateX(100%);
+}
+
+#searchString {
+    background-image: url(/icons/magnifying-glass.svg);
+    background-position: .8em;
+    background-repeat: no-repeat;
+    text-indent: 1.4em;
+}
+
+.text-underline-effect {
+    background: linear-gradient(currentColor 0 0) var(--p, 100%) 100% /var(--d, 0) 2px no-repeat;
+    transition: 0.3s, background-position 0s 0.3s;
+}
+
+.text-underline-effect:hover {
+    --d: 100%;
+    --p: 0%;
+}
+
+.text-underline-effect-left-to-right {
+    background: linear-gradient(currentColor 0 0) var(--p, 0) 100% /var(--d, 0) 1px no-repeat;
+    transition: 0.3s, background-position 0s 0.3s;
+}
+
+.text-underline-effect-left-to-right:hover {
+    --d: 100%;
+    --p: 100%;
+}
+
+.fave {
+    background: none;
+    border: 0;
+    padding: 0;
+    width: 55px;
+    height: 45px;
+    background: url(/icons/fav_star.png) no-repeat;
+    background-position: 0 0;
+    transition: background 1s steps(55);
+    outline: 0;
+    cursor: pointer;
+}
+
+.fave.faved {
+    background-position: -3519px 0;
+}
+
+.kbdClass {
+    margin: 0px 0.1em;
+    padding: 0.1em 0.6em;
+    border-radius: 3px;
+    border: 1px solid rgb(204, 204, 204);
+    color: rgb(51, 51, 51);
+    font-size: 14px;
+    display: inline-block;
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2), inset 0px 0px 0px 2px #ffffff;
+    background-color: rgb(247, 247, 247);
+    -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #ffffff inset;
+    -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #ffffff inset;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    text-shadow: 0 1px 0 #fff;
+}
+
+
+/* Works on Firefox */
+
+.hubblebox {
+    scrollbar-width: thin;
+    scrollbar-color: lightgray;
+}
+
+
+/* Works on Chrome, Edge, and Safari */
+
+.hubblebox::-webkit-scrollbar {
+    width: 12px;
+}
+
+.hubblebox::-webkit-scrollbar-thumb {
+    background-color: lightgray;
+    border-radius: 20px;
+    border: 3px solid lightgray;
+}
+
+div#hubbleSuggestionBox>div {
+    position: relative;
+    height: 100%;
+}
+
+.suggestionBox {
+    position: fixed;
+    width: 100%;
+    top: 50%;
+    right: 33px;
+    max-width: 425px;
+    transform: translateY(-50%);
+}
+
+.suggestion-list-wrap {
+    overflow: auto;
+    height: 100%;
+}
+
+
+/* Works on Chrome, Edge, and Safari */
+
+.suggestion-list-wrap::-webkit-scrollbar {
+    width: 12px;
+}
+
+.suggestion-list-wrap::-webkit-scrollbar-thumb {
+    background-color: lightgray;
+    border-radius: 20px;
+    border: 3px solid lightgray;
+}
+
+.suggestion-list-wrap {
+    scrollbar-width: thin;
+    scrollbar-color: lightgray;
+}
+
+.suggestionBoxHeader_sticky {
+    position: fixed;
+    width: 100%;
+    max-width: 443px;
+    top: 0;
+}
+
+.suggestionBox #suggestionBox_close {
+    position: absolute;
+    top: 9px;
+    right: 9px;
+    cursor: pointer;
+}
+
+
+/* Responsive css */
+
+@media (max-width: 767px) {
+    .suggestionBox {
+        right: 0;
+        max-width: 360px;
+        left: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 575px) {
+    .suggestionBox {
+        max-width: 290px;
+        right: 20px;
+    }
+}

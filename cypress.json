@@ -1,0 +1,27 @@
+{
+    "baseUrl": "https://test4.rnd-tools.cactuslabs.io/",
+    "watchForFileChanges": false,
+    "screenshotsFolder": "cypress/screenshots",
+    "screenshotOnRunFailure": true,
+    "responseTimeout": 60000,
+    "defaultCommandTimeout": 60000,
+    "env": {
+        "environment": "local",
+        "local_server_login_details": {
+            "user_name": "cytest@local.com",
+            "password": "123456"
+        },
+        "test_server_login_details": {
+            "user_name": "cytest@test.com",
+            "password": "123456"
+        },
+        "stagging_server_login_details": {
+            "user_name": "cytest@stagging.com",
+            "password": "123456"
+        },
+        "production_server_login_details": {
+            "user_name": "cytest@production.com",
+            "password": "123456"
+        }
+    }
+}
