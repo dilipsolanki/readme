@@ -35,15 +35,10 @@ jobs:
     - name: Create Database
       run: |
         mkdir -p database
-        touch database/database.sqlite
-    - name: Execute tests (Unit and Feature tests) via PHPUnit
-      #env:
-        #DB_CONNECTION: pgsql
-        #DB_DATABASE: database/database.pgsql
-      #run: vendor/bin/phpunit
-      uses: cypress-io/github-action@v2
-      with:
-       run: npx cypress run
-       browser: chrome
-       headless: true
-       wait-on: 'http://127.0.0.1:8000/'
+        touch database/database.pgsql
+      env:
+        DB_CONNECTION: pgsql
+        DB_DATABASE: database/database.pgsql
+        run: vendor/bin/phpunit
+    - name: Execute cypress tests
+      run: npx cypress run
