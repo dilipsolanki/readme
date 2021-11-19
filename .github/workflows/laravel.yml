@@ -41,4 +41,9 @@ jobs:
         #DB_CONNECTION: pgsql
         #DB_DATABASE: database/database.pgsql
       #run: vendor/bin/phpunit
-      run: npx cypress run
+      uses: cypress-io/github-action@v2
+      with:
+       run: npx cypress run
+       browser: chrome
+       headless: true
+       wait-on: 'http://127.0.0.1:8000/'
