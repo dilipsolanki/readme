@@ -24,6 +24,10 @@ jobs:
       run: php artisan key:generate
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
+    - name: Cypress install
+      run: npm install cypress@3.4.1
+    - name: Install cypress-file-upload
+      run: npm install cypress-file-upload
     - name: Create Database
       run: |
         mkdir -p database
