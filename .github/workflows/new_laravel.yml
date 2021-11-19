@@ -45,4 +45,6 @@ jobs:
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
-      run: .npx cypress run
+      run: vendor/bin/phpunit
+    - name: Execute cypress tests
+      run: npx cypress run
