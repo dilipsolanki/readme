@@ -11,7 +11,7 @@ jobs:
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: Install Cypress
-        uses: npm install cypress --save-dev
+        uses: install cypress@3.4.1
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
