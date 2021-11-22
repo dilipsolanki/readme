@@ -46,5 +46,7 @@ jobs:
 #         DB_CONNECTION: sqlite
 #         DB_DATABASE: database/database.sqlite
 #       run: vendor/bin/phpunit
+    - name: Start server
+      run: npm install --save-dev start-server-and-test
     - name: Execute cypress tests
       run: npx cypress run
