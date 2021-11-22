@@ -1,5 +1,5 @@
 {
-    "baseUrl": "https://127.1.1.0:8000/",
+    "baseUrl": "https://test4.rnd-tools.cactuslabs.io/",
     "watchForFileChanges": false,
     "screenshotsFolder": "cypress/screenshots",
     "screenshotOnRunFailure": true,
