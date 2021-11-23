@@ -24,15 +24,15 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
     - name: Generate encryption key
       run: php artisan key:generate
-    - name: Create temporary sqlite database
-      run: |
-        mkdir -p database
-        touch database/database.sqlite
+#     - name: Create temporary sqlite database
+#       run: |
+#         mkdir -p database
+#         touch database/database.sqlite
     - name: Run laravel database migrations
-      env:
-        DB_CONNECTION: sqlite
-        DB_DATABASE: database/database.sqlite
-      run: php artisan migrate --force
+#       env:
+#         DB_CONNECTION: sqlite
+#         DB_DATABASE: database/database.sqlite
+      run: php artisan migrate --seed
     - name: Install NPM dependencies
       run: npm install
 #     - name: Minify CSS and JS files
