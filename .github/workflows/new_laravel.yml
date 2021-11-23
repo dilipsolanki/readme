@@ -43,10 +43,11 @@ jobs:
       run: npm install cypress-file-upload
 #     - name: Run Laravel Server
 #       run: php artisan serve --port 8000> /dev/null 2>&1 &
-#     - name: Run unit tests via PHPUnit
-#       env:
-#         DB_CONNECTION: sqlite
-#         DB_DATABASE: database/database.sqlite
-#       run: vendor/bin/phpunit
-    - name: Execute cypress tests
+    - name: Run unit tests via PHPUnit
+      env:
+        DB_CONNECTION: sqlite
+        DB_DATABASE: database/database.sqlite
       run: npx cypress run
+#       run: vendor/bin/phpunit
+#     - name: Execute cypress tests
+#       run: npx cypress run
