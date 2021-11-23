@@ -35,14 +35,14 @@ jobs:
       run: php artisan migrate --force
     - name: Install NPM dependencies
       run: npm install
-    - name: Minify CSS and JS files
-      run: npm run prod
+#     - name: Minify CSS and JS files
+#       run: npm run prod
     - name: Cypress install
       run: npm install cypress --save-dev
     - name: Install cypress-file-upload
       run: npm install cypress-file-upload
-    - name: Run Laravel Server
-      run: php artisan serve --port 8000> /dev/null 2>&1 &
+#     - name: Run Laravel Server
+#       run: php artisan serve --port 8000> /dev/null 2>&1 &
 #     - name: Run unit tests via PHPUnit
 #       env:
 #         DB_CONNECTION: sqlite
