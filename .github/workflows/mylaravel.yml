@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run Laravel Server
-        run: npm start & wait-on http://localhost:8000
+        run: php artisan serve
       - uses: cypress-io/github-action@v2
         with:
           browser: chrome
