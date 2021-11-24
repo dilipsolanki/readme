@@ -7,8 +7,6 @@ jobs:
     name: E2E on Chrome
     steps:
       - uses: actions/checkout@v2
-      - name: Run Laravel Server
-        run: php artisan serve
       - uses: cypress-io/github-action@v2
         with:
           browser: chrome
