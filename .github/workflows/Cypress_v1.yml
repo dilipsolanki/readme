@@ -12,6 +12,8 @@ jobs:
       # and run all Cypress tests
       - name: Install Cypress
         uses: install cypress@3.4.1
+      - name: Run Laravel Server
+        run: php artisan serve --port 8000> /dev/null 2>&1 &
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
