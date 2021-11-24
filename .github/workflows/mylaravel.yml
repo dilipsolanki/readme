@@ -1,4 +1,4 @@
-name: End-to-end tests
+name: Cypress tests
 on: [push]
 jobs:
   cypress-run:
@@ -6,7 +6,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Cypress run
+
+      - name: Cypress run with env
         uses: cypress-io/github-action@v2
+        env:
+          CYPRESS_host: api.dev.local
+          CYPRESS_port: 8000
