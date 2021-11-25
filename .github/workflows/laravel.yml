@@ -52,7 +52,7 @@ jobs:
         browser: chrome
         install: false
         start: npm start
-        wait-on: http://localhost:8000
+        wait-on: http://127.0.0.1:8000
         config-file: cypress.json
         spec: cypress/integration/Tools/Live/live-hubble.spec.js
 
