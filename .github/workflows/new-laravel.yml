@@ -30,7 +30,9 @@ jobs:
         start: php artisan serve
         wait-on: 'http://127.0.0.1:8000'
         record: true
-#     - name: Execute tests (Unit and Feature tests) via PHPUnit
+        run: npx cypress run
+    - name: Execute tests (Unit and Feature tests) via PHPUnit
+      run: npx cypress run
 #       env:
 #         DB_CONNECTION: sqlite
 #         DB_DATABASE: database/database.sqlite
