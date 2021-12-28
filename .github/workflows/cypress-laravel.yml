@@ -22,3 +22,5 @@ jobs:
 
       - name: Add content to README.md
         run: echo 'New update' >> README.md
+      - name: Add tightenco
+        run: composer global require tightenco/tlint
