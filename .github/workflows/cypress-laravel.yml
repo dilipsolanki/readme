@@ -20,7 +20,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Add content to README.md
-        run: echo 'New update' >> README.md
-      - name: Add tightenco
-        run: composer global require tightenco/tlint
+      - name: npm install
+        run: npm install
+      - name: Production
+        run: npm run prod 
+      - name: Development
+        run:  npm run dev
+
