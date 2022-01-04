@@ -14,18 +14,17 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install lint
-        run:  composer global require tightenco/tlint
-      - name: Upgrade lint
-        run:  composer global update tightenco/tlint
-      - name: Run lint
-        run: tlint lint app
-      - name: Install npm dependencies
+      - name: Install Dependencies 
         run: npm install
-      - name: Production
-        run: npm run prod 
-      - name: Development
-        run:  npm run dev
+      - name: Make production build
+        run: npm run prod
+      - name: Commit built assets
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git checkout -B deploy
+          git add -f public/
+          git commit -m "Build front-end assets"
+          git push -f origin deploy
