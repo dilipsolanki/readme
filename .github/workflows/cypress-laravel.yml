@@ -19,6 +19,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Install lint
         run:  composer global require tightenco/tlint
+      - name: Upgrade lint
+        run:  composer global update tightenco/tlint
       - name: Run lint
         run: tlint lint app
       - name: Install npm dependencies
