@@ -23,7 +23,6 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git config --global push.default current
           git add -f public/
           git commit -m "Build front-end assets"
           git push origin master
