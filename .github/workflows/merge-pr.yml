@@ -1,8 +1,6 @@
 name: Run build after PR merge
 
 on:
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -26,4 +24,4 @@ jobs:
           git config --local user.name "GitHub Action"
           git add -f public/
           git commit -m "Build front-end assets"
-          git push
+          git push origin master
