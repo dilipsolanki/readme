@@ -26,3 +26,4 @@ package-lock.json
 /cypress/support/routes.json
 /cypress/fixtures
 
+.github/workflows/merge-pr.yml
