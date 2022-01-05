@@ -1,4 +1,4 @@
-name: CI
+name: Make a build after merge
 
 # Controls when the action will run. 
 on:
@@ -20,7 +20,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Add content to README.md
-        run: echo 'New update' >> README.md
-      - name: Add tightenco
-        run: composer global require tightenco/tlint
+      - name: Install Dependencies 
+        run: npm install
+      - name: Make production build
+        run: npm run prod
+      - name: Commit built assets
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -f public/
+          git commit -m "Build front-end assets"
+          git push origin master
