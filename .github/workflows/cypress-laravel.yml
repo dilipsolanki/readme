@@ -1,8 +1,7 @@
-name: Auto-executed whenever a new PR is raised
+name: Auto-executed whenever a new PR is merged
 
 # Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
   pull_request:
     branches: [ master ]
 
@@ -27,4 +26,4 @@ jobs:
           git config --global push.default current
           git add -f public/
           git commit -m "Build front-end assets"
-          git push 
+          git push origin master
