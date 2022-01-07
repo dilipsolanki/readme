@@ -289,4 +289,9 @@ div#hubbleSuggestionBox>div {
         max-width: 290px;
         right: 20px;
     }
+
+    .suggestionBox16 {
+        max-width: 290px;
+        right: 20px;
+    }
 }
