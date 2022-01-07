@@ -25,5 +25,5 @@ jobs:
           git config --local user.name "GitHub Action"
           git add -f public/
           git commit -m "Build front-end assets"
-          if: ${{steps.build.outputs.hash}}!="nothing to commit, working tree clean"
-            git push -f origin master
+          echo ${{steps.build.outputs.hash}}
+          git push -f origin master
