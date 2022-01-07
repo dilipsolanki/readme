@@ -24,4 +24,4 @@ jobs:
           git config --local user.name "GitHub Action"
           git add -f public/
           git commit -m "Build front-end assets"
-          git push -f origin deploy
+          git push -f origin master
