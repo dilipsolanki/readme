@@ -38,3 +38,4 @@
 - [Laravel LiveWire](https://laravel-livewire.com/) for building reactive dynamic interfaces
 - [AlpineJS](https://alpinejs.dev/) is a minimal library for adding behaviours directly to the markup
 - [TailwindCSS](https://tailwindcss.com/) for building components and layouts
+
