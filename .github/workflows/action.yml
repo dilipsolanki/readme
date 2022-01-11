@@ -1,9 +1,6 @@
 name: Run build after PR merge
 
 on:
-  push:
-    branches: 
-      - master
   pull_request:
     types: [closed]
   
@@ -21,6 +18,17 @@ jobs:
         run: npm install
       - name: Make production build
         run: npm run prod
-      - name: Get list of changes files
-        run: git diff-tree --name-only -r ${{ github.sha }}
-      
+      - name: Set config Variables
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+      - name: Add New build files
+        run: git add -f public/
+        id: changed-files
+      - name: Get new files details
+        run: echo steps.changed-files.outputs.files_changed
+      - name: Commit built assets
+        if: steps.changed-files.outputs.files_changed == 'true'
+        run: |
+          git commit -m "Build front-end assets"
+          git push -f origin master
