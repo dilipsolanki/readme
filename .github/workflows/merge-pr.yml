@@ -23,6 +23,7 @@ jobs:
         id: verify-changed-files
         with:
           files: |
+            mk.txt
             /resources/js/app.js
             /resources/css/app.css 
       - name: Check file chnage status
