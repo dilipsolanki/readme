@@ -23,7 +23,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add -f public/
-      - name: Add New build files
-        run: git commit -m "Build front-end assets"
       - name: Commit built assets
+        run: git commit -m "Build front-end assets"
+      - name: Push latest assets
         run: git push -f origin master
