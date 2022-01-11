@@ -26,7 +26,7 @@ jobs:
         run: git add -f public/
         id: changed-files
       - name: Get new files details
-        run: echo steps.changed-files.outputs.files_changed
+        run: echo ${{ steps.changed-files.outputs.files_changed }}
       - name: Commit built assets
         if: steps.changed-files.outputs.files_changed == 'true'
         run: |
