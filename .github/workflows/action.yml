@@ -22,14 +22,14 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          git add -f public/
       - name: Add New build files
-        run: git add -f public/
+        run: git commit -m "Build front-end assets"
         id: changed-files
       - name: Get new files details
         run: |
          echo ${{ steps.changed-files.outputs.changed_files  }}
+         echo ${{ serialize(steps.changed-files.outputs)  }}
       - name: Commit built assets
         if: steps.changed-files.outputs.changed_files  == 'true'
-        run: |
-          git commit -m "Build front-end assets"
-          git push -f origin master
+        run: git push -f origin master
