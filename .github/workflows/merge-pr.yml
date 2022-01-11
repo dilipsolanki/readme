@@ -26,8 +26,8 @@ jobs:
         with:
           files: |
             mk.txt
-            /resources/js/app.js
-            /resources/css/app.css 
+            public/js/app.js
+            public/css/app.css 
       - name: Check file chnage status
         run: |
           echo "${{ steps.verify-changed-files.outputs.files_changed }}"
