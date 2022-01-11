@@ -1,7 +1,1 @@
-.ionBoxsssscccddddsdsddd16csa {
-        max-width: 290px;
-        right: 20px;
-    }.ionBoxsssscccddddsdsddd16csa {
-        max-width: 290px;
-        right: 20px;
-    }
+jhfhf

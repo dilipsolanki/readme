@@ -18,23 +18,17 @@ jobs:
         run: npm install
       - name: Make production build
         run: npm run prod
-      - name: Add New build
-        uses: dilipsolanki/readme@v1.0
-        id: verify-changed-files
-        with:
-          files: |
-            mk.txt
-            public/js/app.js
-            public/css/app.css 
-      - name: Check file change status
-        run: |
-          echo "${{ steps.verify-changed-files.outputs.files_changed }}"
-          echo "Changed files: ${{ steps.verify-changed-files.outputs.changed_files }}"
-      - name: Commit built assets
-        if: steps.verify-changed-files.outputs.files_changed == 'true'
+      - name: Set config Variables
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add -f public/
-          git commit -m "Build front-end assets"
-          git push -f origin master
+      - name: Add New build files
+        run: git commit -m "Build front-end assets"
+        id: changed-files
+      - name: Get new files details
+        run: |
+         echo ${{join(steps.changed-files.outputs.*, '\n')}}
+      - name: Commit built assets
+        if: steps.changed-files.outputs.changed_files  == 'true'
+        run: git push -f origin master
