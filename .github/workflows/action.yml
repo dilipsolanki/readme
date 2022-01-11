@@ -19,7 +19,7 @@ jobs:
       - name: Make production build
         run: npm run prod
       - name: Add version
-        run: echo 'somthing new to write' > mk.txt
+        run: echo 'somthing new to write' >> mk.txt
       - name: Set config Variables
         run: |
           git config --local user.email "action@github.com"
