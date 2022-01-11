@@ -1,6 +1,9 @@
 name: Run build after PR merge
 
 on:
+  push:
+    branches: 
+      - master
   pull_request:
     types: [closed]
   
@@ -19,5 +22,5 @@ jobs:
       - name: Make production build
         run: npm run prod
       - name: Get list of changes files
-        run: git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
+        run: git diff-tree --name-only -r ${{ github.sha }}
       
