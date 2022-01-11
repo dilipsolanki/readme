@@ -14,10 +14,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Install Dependencies 
         run: npm install
       - name: Make production build
         run: npm run prod
       - name: Get list of changes files
-        run: git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
+        run: git diff --name-only "$GITHUB_BASE_REF..$GITHUB_SHA" | xargs black --check --fast
+
       
