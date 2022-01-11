@@ -18,13 +18,16 @@ jobs:
         run: npm install
       - name: Make production build
         run: npm run prod
+      - name: Verify Changed files
+        uses: tj-actions/verify-changed-files@v8.8
+        id: verify-changed-files
+        with:
+          files: resources
       - name: Commit built assets
+        if: steps.verify-changed-files.outputs.files_changed == 'true'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add -f public/
           git commit -m "Build front-end assets"
-  Push-Code:
-      - name: Push Code if new data added
-        needs: Assets-Setup
-        run:  git push -f origin master
+          git push -f origin master
