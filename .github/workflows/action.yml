@@ -18,6 +18,8 @@ jobs:
         run: npm install
       - name: Make production build
         run: npm run prod
+      - name: Get difference
+        run: git diff
       - name: Set config Variables
         run: |
           git config --local user.email "action@github.com"
@@ -27,8 +29,7 @@ jobs:
         run: git commit -m "Build front-end assets"
         id: changed-files
       - name: Get new files details
-        run: |
-         echo ${{join(steps.changed-files.outputs.*, '\n')}}
+        run: echo ${{join(steps.changed-files.outputs.*, '\n')}}
       - name: Commit built assets
         if: steps.changed-files.outputs.changed_files  == 'true'
         run: git push -f origin master
