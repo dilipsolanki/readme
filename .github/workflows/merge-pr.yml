@@ -14,12 +14,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Install Dependencies 
         run: npm install
       - name: Make production build
         run: npm run prod
       - name: Verify Changed files
-        uses: dilipsolanki/readme@v2
+        uses: dilipsolanki/verify-changed-files@v2
         id: verify-changed-files
         with:
           files: |
