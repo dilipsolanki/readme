@@ -22,7 +22,7 @@ jobs:
       - name: Make production build
         run: npm run prod
       - name: Verify Changed files
-        uses: dilipsolanki/verify-changed-files@v2
+        uses: dilipsolanki/readme@v2
         id: verify-changed-files
         with:
           files: |
