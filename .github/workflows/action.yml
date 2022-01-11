@@ -26,9 +26,11 @@ jobs:
         run: git add -f public/
         id: changed-files
       - name: Get new files details
-        run: echo ${{ steps.changed-files.outputs.files_changed }}
+        run: |
+         echo ${{ steps.changed-files.outputs }}
+         echo steps.changed-files.outputs
       - name: Commit built assets
-        if: steps.changed-files.outputs.files_changed == 'true'
+        if: steps.changed-files.outputs == 'true'
         run: |
           git commit -m "Build front-end assets"
           git push -f origin master
