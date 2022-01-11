@@ -20,23 +20,6 @@ jobs:
         run: npm install
       - name: Make production build
         run: npm run prod
-      - name: Verify Changed files
-        uses: dilipsolanki/readme@v1.0
-        id: verify-changed-files
-        with:
-          files: |
-            mk.txt
-            public/js/app.js
-            public/css/app.css 
-      - name: Check file chnage status
-        run: |
-          echo "${{ steps.verify-changed-files.outputs.files_changed }}"
-          echo "Changed files: ${{ steps.verify-changed-files.outputs.changed_files }}"
-      - name: Commit built assets
-        if: steps.verify-changed-files.outputs.files_changed == 'true'
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add -f public/
-          git commit -m "Build front-end assets"
-          git push -f origin master
+      - name: Get list of changes files
+        run: git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
+      
