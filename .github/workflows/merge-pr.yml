@@ -23,8 +23,8 @@ jobs:
         id: verify-changed-files
         with:
           files: |
-            resources/js/app.js
-            resources/css/app.css 
+            /resources/js/app.js
+            /resources/css/app.css 
       - name: Commit built assets
         if: steps.verify-changed-files.outputs.files_changed == 'true'
         run: |
