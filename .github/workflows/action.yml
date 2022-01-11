@@ -19,12 +19,12 @@ jobs:
       - name: Make production build
         run: npm run prod
       - name: Add version
-        run: echo 'somthing new to write' >> mk.txt
+        run: echo '' >> README.md
       - name: Set config Variables
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add -f public/ mk.txt
+          git add -f public/ README.md
       - name: Commit built assets
         run: git commit -m "Build front-end assets"
       - name: Push latest assets
