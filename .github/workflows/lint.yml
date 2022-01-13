@@ -1,18 +1,16 @@
 name: Run Lint after PR merge
 
 on:
-  push:
-    branches:
-      - "master"
+  pull_request:
+    types: [closed]
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "deploy"
-  deploy:
+  Assets-Setup:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
-
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -20,14 +18,16 @@ jobs:
         run: npm install
       - name: Make production build
         run: npm run prod
-      - name: Commit built assets
+      - name: Set config Variables
         run: |
+          echo '' >> README.md
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add -f public/
-          git commit -m "Build front-end assets"
-          git push -f origin master
-
+          git add -f public/ README.md
+      - name: Commit built assets
+        run: git commit -m "Build front-end assets"
+      - name: Push latest assets
+        run: git push -f origin master
       - name: Run linters
         uses: wearerequired/lint-action@v1
         with:
