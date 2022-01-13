@@ -1,0 +1,36 @@
+name: Lint
+
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run-linters:
+    name: Run linters
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Dependencies 
+        run: npm install
+      - name: Make production build
+        run: npm run prod
+      - name: Commit built assets
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -f public/
+          git commit -m "Build front-end assets"
+          git push -f origin master
+
+      - name: Run linters
+        uses: wearerequired/lint-action@v1
+        with:
+          php_codesniffer: true
