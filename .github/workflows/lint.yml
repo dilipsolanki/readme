@@ -32,6 +32,7 @@ jobs:
         run: |
           composer install --prefer-dist --no-progress --no-ansi --no-interaction
           echo "${PWD}/vendor/bin" >> $GITHUB_PATH
+          composer require overtrue/phplint:^4.0 --dev -vvv
       - name: Run linters
         uses: wearerequired/lint-action@v1
         with:
