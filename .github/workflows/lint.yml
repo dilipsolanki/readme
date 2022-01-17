@@ -1,39 +1,34 @@
-name: Run Lint after PR merge
+name: Lint
 
 on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - main
+  # Replace pull_request with pull_request_target if you
+  # plan to use this action with forks, see the Limitations section
   pull_request:
-    types: [closed]
-  
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+    branches:
+      - main
+
+# Down scope as necessary via https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token
+permissions:
+  checks: write
+  contents: write
+
 jobs:
-  # This workflow contains a single job called "deploy"
-  Assets-Setup:
-    # The type of runner that the job will run on
+  run-linters:
+    name: Run linters
     runs-on: ubuntu-latest
-    # Steps represent a sequence of tasks that will be executed as part of the job
+
     steps:
-      - name: Checkout
+      - name: Check out Git repository
         uses: actions/checkout@v2
-      - name: Install Dependencies 
-        run: npm install
-      - name: Make production build
-        run: npm run prod
-      - name: Set config Variables
-        run: |
-          echo '' >> README.md
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add -f public/ README.md
-      - name: Commit built assets
-        run: git commit -m "Build front-end assets"
-      - name: Push latest assets
-        run: git push -f origin master
-      - name: Install PHP dependencies
-        run: |
-          composer install --prefer-dist --no-progress --no-ansi --no-interaction
-          echo "${PWD}/vendor/bin" >> $GITHUB_PATH
-          composer require overtrue/phplint:^4.0 --dev -vvv
+
+      # Install your linters here
+
       - name: Run linters
         uses: wearerequired/lint-action@v1
         with:
-          php_codesniffer: true
+          # Enable your linters here
