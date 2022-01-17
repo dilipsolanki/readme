@@ -1,15 +1,15 @@
-var express = require("express");
-var neo4j = require('neo4j-driver');
+const express = require("express");
+const neo4j = require('neo4j-driver');
 
-require('dotenv').config({path: './../.env'});
+require('dotenv').config({ path: './../.env' });
 
-var app = express();
+const app = express();
 app.use(express.json())
 app.listen(3000, () => {
     console.log("Server running on port 3000");
 });
 
-var driver = neo4j.driver(
+const driver = neo4j.driver(
     'bolt://' + process.env.NEO4J_HOST,
     neo4j.auth.basic(process.env.NEO4J_USERNAME, process.env.NEO4J_PASSWORD)
 );
@@ -17,12 +17,12 @@ var driver = neo4j.driver(
 app.post("/lumiere", (req, res) => {
     console.log('request received..');
 
-    var queryToExecute = req.body.q;
+    let queryToExecute = req.body.q;
     queryToExecute = queryToExecute.replace(/(\r\n|\n|\r)/gm, "").replace(/  +/g, ' ');
 
-    var session = driver.session();
+    let session = driver.session();
 
-    var results = [];
+    let results = [];
     console.log(queryToExecute, '\n');
     session.run(queryToExecute)
         .subscribe({
