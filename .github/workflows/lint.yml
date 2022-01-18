@@ -22,8 +22,7 @@ jobs:
         uses: wearerequired/lint-action@v1
         #uses: batista/lint-filenames@v1
         with:
-            eslint_dir: cypress/
-            Default: true
+            eslint_dir: true
        # with:
          #path: '../../LumiereApi'
          #pattern: '^.+\\..+$'
