@@ -23,7 +23,7 @@ jobs:
        # with:
            # eslint: true
         with:
-         path: 'LumiereApi'
+         path: 'cypress/'
          pattern: '^.+\\..+$'
       - name: Commit built assets
         run: |
