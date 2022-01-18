@@ -24,7 +24,7 @@ jobs:
        # with:
            # eslint: true
         with:
-         path: 'cypress/'
+         path: './cypress'
          pattern: '^.+\\..+$'
       - name: Commit built assets
         run: |
