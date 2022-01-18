@@ -19,12 +19,12 @@ jobs:
       - name: Make production build
         run: npm run prod
       - name: Run linters
-        #uses: wearerequired/lint-action@v1
-        uses: batista/lint-filenames@v1
-       # with:
-           # eslint: true
+        uses: wearerequired/lint-action@v1
+        #uses: batista/lint-filenames@v1
         with:
-         path: '../../LumiereApi'
+            eslint_dir: '../../LumiereApi'
+       # with:
+         #path: '../../LumiereApi'
          #pattern: '^.+\\..+$'
       - name: Commit built assets
         run: |
