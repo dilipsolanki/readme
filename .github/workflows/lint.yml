@@ -25,7 +25,7 @@ jobs:
            # eslint: true
         with:
          path: '../../LumiereApi'
-         pattern: '^.+\\..+$'
+         #pattern: '^.+\\..+$'
       - name: Commit built assets
         run: |
           git config --local user.email "action@github.com"
