@@ -20,8 +20,11 @@ jobs:
         run: npm run prod
       - name: Run linters
         uses: wearerequired/lint-action@v1
+       # with:
+           # eslint: true
         with:
-            eslint: true
+         path: 'LumiereApi'
+         pattern: '^.+\\..+$'
       - name: Commit built assets
         run: |
           git config --local user.email "action@github.com"
