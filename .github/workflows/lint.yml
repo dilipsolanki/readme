@@ -22,9 +22,4 @@ jobs:
         uses: wearerequired/lint-action@v1
         #uses: batista/lint-filenames@v1
         with:
-             eslint: --fix-dry-run
-            #eslint: true
-       # with:
-         #path: '../../LumiereApi'
-         #pattern: '^.+\\..+$'
-    
+            eslint: true
