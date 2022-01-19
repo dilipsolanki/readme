@@ -3,13 +3,7 @@ on:
   push:
     branches:
       - "master"
-  paths-ignore:
-      - '**.md'
-  pull_request:
-    paths-ignore:
-      - '**.md'
-  workflow_dispatch:
-
+  
 jobs:
   phpstan:
     name: "PHP: 7.4 | PHPStan"
