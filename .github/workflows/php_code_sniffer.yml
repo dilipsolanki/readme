@@ -19,7 +19,7 @@ jobs:
           tools: phpstan
 
       - name: Install Composer dependencies
-        uses: "ramsey/composer-install@v1"
+        run: composer install
 
       - name: Run PHPStan
         run: phpstan analyse --configuration=phpstan.neon
