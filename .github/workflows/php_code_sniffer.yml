@@ -6,8 +6,6 @@ on:
   
 jobs:
   phpstan:
-    name: "PHP: 7.4 | PHPStan"
-
     runs-on: "ubuntu-latest"
     steps:
       - name: Checkout code
