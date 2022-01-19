@@ -5,15 +5,13 @@ on:
     branches: [ master, test ]
   
 jobs:
-    php-cs-fixer:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v2
-              with:
-                  ref: ${{ github.head_ref }}
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
 
-            - name: Install
-              run: composer install
-
-            - name: Run php-cs-fixer
-              run: ./vendor/bin/php-cs-fixer fix
+      - name: PHP Code Style (phpcs)
+        uses: chindit/actions-phpcs@master
+        with:
+          # Folder to check code style
+          dir: app/
