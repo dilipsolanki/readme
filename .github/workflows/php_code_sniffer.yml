@@ -18,8 +18,5 @@ jobs:
           coverage: none
           tools: phpstan
 
-      - name: Install Composer dependencies
-        run: composer update
-
       - name: Run PHPStan
         run: phpstan analyse --configuration=phpstan.neon
