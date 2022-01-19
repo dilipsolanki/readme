@@ -1,8 +1,8 @@
-name: Run build after Check lint 
+name: Run build after Check lint
+
 on:
   push:
-    branches:
-      - "master"
+    branches: [ master ]
   
 jobs:
   phpstan:
