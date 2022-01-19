@@ -20,10 +20,6 @@ jobs:
         run: npm run prod
       - name: Run linters
         uses: wearerequired/lint-action@v1
-        #uses: batista/lint-filenames@v1
         with:
-            eslint: --fix "../../cypress"
-       # with:
-         #path: '../../LumiereApi'
-         #pattern: '^.+\\..+$'
+            eslint: true
     
