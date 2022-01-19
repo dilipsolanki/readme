@@ -2,7 +2,7 @@ name: Run build after Check lint
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, test ]
   
 jobs:
   phpstan:
