@@ -5,21 +5,35 @@ on:
     branches: [ master, test ]
   
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "deploy"
-  deploy:
-    # The type of runner that the job will run on
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
-    # Steps represent a sequence of tasks that will be executed as part of the job
+
     steps:
-      - name: Checkout
+      - name: Check out Git repository
         uses: actions/checkout@v2
-      - name: Install Dependencies 
-        run: npm install
-      - name: Make production build
-        run: npm run prod
-      - name: Install lint
-        run: npx lint install
-      - name: Run linters
-        run: npm run lint app/
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Set up cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Lint
+        run: |
+          yarn lint
+          yarn format
