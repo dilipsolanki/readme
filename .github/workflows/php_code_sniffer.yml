@@ -1,4 +1,4 @@
-name: Run build after Check lint
+name: Run build after Check lint php
 
 on:
   push:
