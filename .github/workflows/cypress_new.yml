@@ -1,4 +1,4 @@
-name: Cypress Tests with Install Job and UI Chrome Job x 5
+name: Cypress Tests with Install Job 
 on: [pull_request]
 jobs:
   cypress-run:
