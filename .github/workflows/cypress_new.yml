@@ -9,4 +9,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: cypress-io/github-action@v2
         with:
-          browser: chrome
+          build: npm run build
+          start: php artisan serve
+          wait-on: 'http://localhost:8000'
+          config: baseUrl=http://localhost:8000
