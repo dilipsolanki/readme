@@ -26,7 +26,7 @@ jobs:
         with:
           # we have already installed all dependencies above
           install: false
-          start: yarn start:ci
+          start: npm install
           wait-on: 'http://localhost:8000'
           wait-on-timeout: 120
           browser: chrome
