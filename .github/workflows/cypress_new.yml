@@ -1,18 +1,12 @@
-name: Cypress Tests with Install Job 
-on: [pull_request]
+#name: Cypress Tests
+name: Chrome headless
+on: [push]
 jobs:
   cypress-run:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
-      - name: Checkout 🛎
-        uses: actions/checkout@v2
-      - name: Install Cypress and dependencies 📦
-        uses: cypress-io/github-action@v1
+      - uses: actions/checkout@v2
+      - uses: cypress-io/github-action@v2
         with:
-         runTests: false
-      # run all tests to be sure
-      - name: Run all Cypress tests 🧪
-        uses: cypress-io/github-action@v1
-        with:
-            # we have already installed all dependencies above
-          install: false
+          browser: chrome
+          headless: true
