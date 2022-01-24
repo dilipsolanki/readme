@@ -1,15 +1,19 @@
-name: E2E on Chrome
+name: Cypress tests
 on: [push]
 jobs:
   cypress-run:
+    name: Cypress run
     runs-on: ubuntu-20.04
-    # let's make sure our tests pass on Chrome browser
-    name: E2E on Chrome
     steps:
-      - uses: actions/checkout@v2
-      - uses: cypress-io/github-action@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
         with:
-          build: npm run build
-          start: php artisan serve
-          wait-on: 'http://localhost:8000'
-          config: baseUrl=http://localhost:8000
+          record: true
+        env:
+          # pass the Dashboard record key as an environment variable
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
