@@ -15,11 +15,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Download the build folders
-        uses: actions/download-artifact@v2
-        with:
-          name: build
-          path: build
+      #- name: Download the build folders
+       # uses: actions/download-artifact@v2
+        #with:
+         # name: build
+          #path: build
 
       - name: 'UI Tests - Chrome'
         uses: cypress-io/github-action@v2
@@ -27,7 +27,7 @@ jobs:
           # we have already installed all dependencies above
           install: false
           start: yarn start:ci
-          wait-on: 'http://localhost:3000'
+          wait-on: 'http://localhost:8000'
           wait-on-timeout: 120
           browser: chrome
           record: true
