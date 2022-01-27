@@ -100,9 +100,9 @@ jobs:
           config: baseUrl=http://localhost:8000
           wait-on: http://localhost:8000
         env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
+          CYPRESS_RECORD_KEY: ${{ env.CYPRESS_RECORD_KEY }}
+          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          #COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
 
       - name: Cypress infos
         run: |
