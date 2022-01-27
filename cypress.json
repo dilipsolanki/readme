@@ -3,6 +3,7 @@
     "watchForFileChanges": false,
     "screenshotsFolder": "cypress/screenshots",
     "screenshotOnRunFailure": true,
+    "projectId": "4s6utv",
     "responseTimeout": 60000,
     "defaultCommandTimeout": 60000,
     "env": {
