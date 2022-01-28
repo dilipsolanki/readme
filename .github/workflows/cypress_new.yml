@@ -12,4 +12,4 @@ jobs:
       #- name: PHP Start
       #  run: php artisan serve
       - name: cypress run
-        run: npx cypress open
+        run: npx cypress run
