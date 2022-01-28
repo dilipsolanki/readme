@@ -1,19 +1,14 @@
-name: Cypress Tests
-
+name: Cypress tests
 on: [push]
-
 jobs:
   cypress-run:
-    runs-on: ubuntu-latest
+    name: Cypress run
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      # Install NPM dependencies, cache them correctly
-      - name: Install NPM
-        run: npm install
-      # and run all Cypress tests
+
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-         
-          start: npx cypress open
+          spec: cypress/integration/Tools/Live/live-hubble.spec.js
