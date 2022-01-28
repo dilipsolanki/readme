@@ -26,7 +26,6 @@ jobs:
       - name: Run linters
         uses: wearerequired/lint-action@v1
         with:
-          eslint: --init
           eslint: true
           eslint_args: "--max-warnings 0"
           eslint_dir: ../../resources
