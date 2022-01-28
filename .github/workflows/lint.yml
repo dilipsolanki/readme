@@ -28,5 +28,6 @@ jobs:
           eslint_args: "--max-warnings 0"
           eslint_dir: ../../resources
           eslint_extensions: js
+          eslint_command_prefix: "npm install -g eslint" .
           #prettier: true
 
