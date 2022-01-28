@@ -12,7 +12,7 @@ jobs:
       - name: Composer update 
         run: composer install
       - name: PHP Start
-       run: php artisan serve
+        run: php artisan serve
       - name: cypress run
         run: npx cypress run --record
 
