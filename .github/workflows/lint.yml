@@ -22,7 +22,9 @@ jobs:
       - name: Install Node.js dependencies
         run: npm ci
       - name: Lint install
-        run: npm install -g eslint
+        run: npm install eslint --save-dev
+      - name: Create lint file 
+        run: eslint --init
       - name: Run linters
         uses: wearerequired/lint-action@v1
         with:
@@ -30,6 +32,6 @@ jobs:
           eslint_args: "--max-warnings 0"
           eslint_dir: ../../resources
           eslint_extensions: js
-          eslint_command_prefix: "npm install -g eslint"
+          #eslint_command_prefix: "npm install -g eslint"
           #prettier: true
 
