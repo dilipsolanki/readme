@@ -24,5 +24,6 @@ jobs:
       - name: Export key
         run: export CYPRESS_RECORD_KEY=a3507380-0c6e-4817-9b9d-04fa9e413e95
       - name: cypress run
-        run: npx cypress run --record
+        run:   cypress run --record --key a3507380-0c6e-4817-9b9d-04fa9e413e95
+
 
