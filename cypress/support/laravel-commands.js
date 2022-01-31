@@ -15,6 +15,7 @@ Cypress.Commands.add('login', (attributes = {}) => {
                 url: '/__cypress__/login',
                 body: { attributes, _token: token },
                 log: false,
+                failOnStatusCode: false
             });
         })
         .then(({ body }) => {
@@ -151,7 +152,9 @@ Cypress.Commands.add('create', (model, times = 1, attributes = {}, relations = [
             Cypress.log({
                 name: 'create',
                 message: model + (times ? `(${times} times)` : ''),
-                consoleProps: () => ({ [model]: response.body }),
+                consoleProps: () => ({
+                    [model]: response.body
+                }),
             });
         })
         .its('body', { log: false });
