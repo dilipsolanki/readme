@@ -11,8 +11,14 @@ jobs:
         run: npm install
       - name: Composer update 
         run: composer install
-      - name: PHP Start
-        run: nohup php artisan serve &
+      - name : Cypres Install
+        run: npm install cypress --save-dev
+      - name: Composer 
+        run: composer require laracasts/cypress --dev
+      - name: Clear cache
+        run: php artisan route:cache
+      - name: cypress:boilerplate
+        run: php artisan cypress:boilerplate
       - name: PHP Start
         run: nohup php artisan serve &
       - name: cypress run
