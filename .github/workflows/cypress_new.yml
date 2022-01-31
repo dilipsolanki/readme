@@ -16,5 +16,5 @@ jobs:
       - name: PHP Start
         run: nohup php artisan serve &
       - name: cypress run
-        run: npx cypress run --record
+        run: npx cypress run
 
