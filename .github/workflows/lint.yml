@@ -22,9 +22,8 @@ jobs:
       - name: Install Node.js dependencies
         run: npm ci
       - name: Run linters
-        run: ./node_modules/.bin/eslint  LumiereApi/app.js
-        #uses: wearerequired/lint-action@v1
-        #with:
-         # eslint: true
-          # prettier: true
+      # Run for specific file
+      run: ./node_modules/.bin/eslint  LumiereApi/app.js
+      # Run for specific folder
+     # run: ./node_modules/.bin/eslint resources
 
