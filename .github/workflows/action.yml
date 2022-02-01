@@ -1,15 +1,13 @@
-name: Run Lint for Syntax errors
+name: Run build after PR merge
 
 on:
   pull_request:
-    types: [opened]
-  push:
-    branches: [master]
+    types: [closed]
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "deploy"
-  deploy:
+  Assets-Setup:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -20,14 +18,13 @@ jobs:
         run: npm install
       - name: Make production build
         run: npm run prod
-      # ESLint and Prettier must be in `package.json`
-      - name: Install Node.js dependencies
-        run: npm ci
-      - name: Install phplint
-        run:  npm i -g phplint
-      - name: Run linters
-      # Run for specific file
-      # run: ./node_modules/.bin/eslint  LumiereApi/app.js
-      # Run for specific folder
-        run: phplint app/ & ./node_modules/.bin/eslint resources
-
+      - name: Set config Variables
+        run: |
+          echo '' >> README.md
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -f public/ README.md
+      - name: Commit built assets
+        run: git commit -m "Build front-end assets"
+      - name: Push latest assets
+        run: git push -f origin master
