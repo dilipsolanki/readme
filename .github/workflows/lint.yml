@@ -1,4 +1,4 @@
-name: Run Lint for Syntax error 
+name: Run Lint for Syntax errors
 
 on:
   pull_request:
