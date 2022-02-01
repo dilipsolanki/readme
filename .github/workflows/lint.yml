@@ -26,6 +26,7 @@ jobs:
       - name: Run linters
       # Run for specific file
       # run: ./node_modules/.bin/eslint  LumiereApi/app.js
+        # run: ./node_modules/.bin/eslint  LumiereApi/app.js
       # Run for specific folder
         run: phplint app/ & ./node_modules/.bin/eslint ./
 
