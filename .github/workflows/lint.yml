@@ -1,9 +1,10 @@
 name: Run Lint for Syntax errors
 
 on:
+  pull_request:
+    types: [opened]
   push:
-    branches:
-      - "master"
+    branches: [master]
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
