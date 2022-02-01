@@ -7,4 +7,5 @@ jobs:
       - uses: actions/checkout@v2
       - uses: RafikFarhad/clang-format-github-action@v1.0.1
         with:
-          sources: clang-format -style=file -i LumiereApi/app.js
+          sources: "./resources"
+          #sources: clang-format -style=file -i LumiereApi/app.js
