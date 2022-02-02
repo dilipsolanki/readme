@@ -24,7 +24,10 @@ jobs:
       - name: Cypress run with env
         uses: cypress-io/github-action@v2
         with:
-          env: host=api.dev.local,port=8000
+          record: true
+        env:
+          # pass the Dashboard record key as an environment variable
+          CYPRESS_RECORD_KEY: 'a3507380-0c6e-4817-9b9d-04fa9e413e95'
 #       - name: Export key
 #         run: export CYPRESS_RECORD_KEY=a3507380-0c6e-4817-9b9d-04fa9e413e95
 #       - name: cypress run
