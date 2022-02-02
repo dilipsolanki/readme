@@ -15,16 +15,8 @@ jobs:
         run: npm install cypress --save-dev
       - name: Composer 
         run: composer require laracasts/cypress --dev
-      - name: Clear cache
-        run: php artisan cache:clear
-      - name: view cache
-        run: php artisan view:cache
-      - name: Clear view
-        run: php artisan view:clear
       - name: Clear route
         run: php artisan route:cache
-      - name: Key generate
-        run: php artisan key:generate
       - name: cypress:boilerplate
         run: php artisan cypress:boilerplate
       - name: PHP Start

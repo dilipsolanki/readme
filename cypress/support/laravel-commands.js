@@ -15,6 +15,7 @@ Cypress.Commands.add('login', (attributes = {}) => {
                 url: '/__cypress__/login',
                 body: { attributes, _token: token },
                 log: false,
+                failOnStatusCode: false
             });
         })
         .then(({ body }) => {
@@ -42,6 +43,7 @@ Cypress.Commands.add('logout', () => {
                 method: 'POST',
                 url: '/__cypress__/logout',
                 body: { _token: token },
+                failOnStatusCode: false,
                 log: false,
             });
         })
@@ -78,6 +80,7 @@ Cypress.Commands.add('refreshRoutes', () => {
                 url: '/__cypress__/routes',
                 body: { _token: token },
                 log: false,
+                failOnStatusCode: false
             })
             .its('body', { log: false })
             .then((routes) => {
@@ -145,6 +148,7 @@ Cypress.Commands.add('create', (model, times = 1, attributes = {}, relations = [
                 url: '/__cypress__/factory',
                 body: { attributes, model, times, relations, _token: token },
                 log: false,
+                failOnStatusCode: false
             });
         })
         .then((response) => {
@@ -211,6 +215,7 @@ Cypress.Commands.add('artisan', (command, parameters = {}, options = {}) => {
             url: '/__cypress__/artisan',
             body: { command: command, parameters: parameters, _token: token },
             log: false,
+            failOnStatusCode: false
         });
     });
 });
@@ -232,6 +237,7 @@ Cypress.Commands.add('php', (command) => {
                 url: '/__cypress__/run-php',
                 body: { command: command, _token: token },
                 log: false,
+                failOnStatusCode: false
             });
         })
         .then((response) => {
