@@ -23,6 +23,8 @@ jobs:
         run: php artisan view:clear
       - name: Clear route
         run: php artisan route:cache
+      - name: Key generate
+        run: php artisan key:generate
       - name: cypress:boilerplate
         run: php artisan cypress:boilerplate
       - name: PHP Start
