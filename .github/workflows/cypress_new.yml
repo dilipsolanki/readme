@@ -16,6 +16,12 @@ jobs:
       - name: Composer 
         run: composer require laracasts/cypress --dev
       - name: Clear cache
+        run: php artisan cache:clear
+      - name: view cache
+        run: php artisan view:cache
+      - name: Clear view
+        run: php artisan view:clear
+      - name: Clear route
         run: php artisan route:cache
       - name: cypress:boilerplate
         run: php artisan cypress:boilerplate
