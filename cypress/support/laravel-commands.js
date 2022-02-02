@@ -41,7 +41,7 @@ Cypress.Commands.add('logout', () => {
             return cy.request({
                 method: 'POST',
                 url: '/__cypress__/logout',
-                body: { _token: token },
+                body: { _token: 'nb4pYNzK1lRAaAVuvT27LBkkXNmoErl2sKaswcp3' },
                 log: false,
             });
         })
