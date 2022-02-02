@@ -20,7 +20,8 @@ jobs:
       - name: cypress:boilerplate
         run: php artisan cypress:boilerplate
       - name: PHP Start
-        run: nohup php artisan serve &
+        run: php artisan serve &
+#         run: nohup php artisan serve &
       - name: Cypress run with env
         uses: cypress-io/github-action@v2
         with:
