@@ -13,7 +13,7 @@ Cypress.Commands.add('login', (attributes = {}) => {
             return cy.request({
                 method: 'POST',
                 url: '/__cypress__/login',
-                body: { attributes, _token: token },
+                body: { attributes, _token: 'nb4pYNzK1lRAaAVuvT27LBkkXNmoErl2sKaswcp3' },
                 log: false,
             });
         })
@@ -76,7 +76,7 @@ Cypress.Commands.add('refreshRoutes', () => {
             .request({
                 method: 'POST',
                 url: '/__cypress__/routes',
-                body: { _token: token },
+                body: { _token: 'nb4pYNzK1lRAaAVuvT27LBkkXNmoErl2sKaswcp3' },
                 log: false,
             })
             .its('body', { log: false })
@@ -143,7 +143,7 @@ Cypress.Commands.add('create', (model, times = 1, attributes = {}, relations = [
             return cy.request({
                 method: 'POST',
                 url: '/__cypress__/factory',
-                body: { attributes, model, times, relations, _token: token },
+                body: { attributes, model, times, relations, _token: 'nb4pYNzK1lRAaAVuvT27LBkkXNmoErl2sKaswcp3' },
                 log: false,
             });
         })
@@ -207,7 +207,7 @@ Cypress.Commands.add('artisan', (command, parameters = {}, options = {}) => {
         return cy.request({
             method: 'POST',
             url: '/__cypress__/artisan',
-            body: { command: command, parameters: parameters, _token: token },
+            body: { command: command, parameters: parameters, _token: 'nb4pYNzK1lRAaAVuvT27LBkkXNmoErl2sKaswcp3' },
             log: false,
         });
     });
@@ -228,7 +228,7 @@ Cypress.Commands.add('php', (command) => {
             return cy.request({
                 method: 'POST',
                 url: '/__cypress__/run-php',
-                body: { command: command, _token: token },
+                body: { command: command, _token: 'nb4pYNzK1lRAaAVuvT27LBkkXNmoErl2sKaswcp3' },
                 log: false,
             });
         })
