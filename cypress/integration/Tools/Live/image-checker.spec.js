@@ -6,6 +6,7 @@ import {
 
 beforeEach(() => {
     Cypress.env()
+    cy.clearCookies() // clear all cookies
     cy.visit({
         route: 'labs-login'
     });
