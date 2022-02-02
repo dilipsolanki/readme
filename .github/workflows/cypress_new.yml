@@ -5,6 +5,8 @@ jobs:
     name: Cypress run
     runs-on: ubuntu-20.04
     steps:
+    - name: Npm install
+      run: npm install
     - uses: actions/checkout@v2
     - uses: cypress-io/github-action@v2
       with:
