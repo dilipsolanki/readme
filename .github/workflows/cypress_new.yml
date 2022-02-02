@@ -5,24 +5,28 @@ jobs:
     name: Cypress run
     runs-on: ubuntu-20.04
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Npm install
-        run: npm install
-      - name: Composer update 
-        run: composer install
-      - name : Cypres Install
-        run: npm install cypress --save-dev
-      - name: Composer 
-        run: composer require laracasts/cypress --dev
-      - name: Clear route
-        run: php artisan route:cache
-      - name: cypress:boilerplate
-        run: php artisan cypress:boilerplate
-      - name: PHP Start
-        run: nohup php artisan serve &
-      - name: Export key
-        run: export CYPRESS_RECORD_KEY=a3507380-0c6e-4817-9b9d-04fa9e413e95
-      - name: cypress run
-        run:  npx cypress run --record --key a3507380-0c6e-4817-9b9d-04fa9e413e95
+    - uses: actions/checkout@v2
+    - uses: cypress-io/github-action@v2
+      with:
+          browser: chrome
+#       - name: Checkout
+#         uses: actions/checkout@v2
+#       - name: Npm install
+#         run: npm install
+#       - name: Composer update 
+#         run: composer install
+#       - name : Cypres Install
+#         run: npm install cypress --save-dev
+#       - name: Composer 
+#         run: composer require laracasts/cypress --dev
+#       - name: Clear route
+#         run: php artisan route:cache
+#       - name: cypress:boilerplate
+#         run: php artisan cypress:boilerplate
+#       - name: PHP Start
+#         run: nohup php artisan serve &
+#       - name: Export key
+#         run: export CYPRESS_RECORD_KEY=a3507380-0c6e-4817-9b9d-04fa9e413e95
+#       - name: cypress run
+#         run:  npx cypress run --record --key a3507380-0c6e-4817-9b9d-04fa9e413e95
 
