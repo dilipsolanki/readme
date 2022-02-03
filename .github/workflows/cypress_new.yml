@@ -11,8 +11,6 @@ jobs:
         run: npm install
       - name: Composer update 
         run: composer install
-      - name:  Cypress clear
-        run: cypress cache clear
       - name : Cypres Install
         run: npm install cypress --save-dev
       - name: Composer 
