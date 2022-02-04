@@ -23,7 +23,7 @@ jobs:
           headless: true
           record: true
           parallel: true
-          install: false
+          install: true
 #           group: github action ${{ matrix.browser }}
 #           tag: ${{ github.event_name }}
           config: baseUrl=http://localhost:8000
