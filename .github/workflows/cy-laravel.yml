@@ -12,11 +12,6 @@ jobs:
       # and run all Cypress tests
       - name: NPM install
         run: npm install
-      - name: Download the build folders
-        uses: actions/download-artifact@v2
-        with:
-          name: build
-          path: build
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
