@@ -7,6 +7,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Composer update 
+        run: composer install
       - name: Npm install
         run: npm install
           # Cypress
@@ -26,8 +28,8 @@ jobs:
           install: true
 #           group: github action ${{ matrix.browser }}
 #           tag: ${{ github.event_name }}
-          config: baseUrl=http://localhost:8000
-          wait-on: http://localhost:8000
+          config: baseUrl=http://127.0.0.1:8000
+          wait-on: http://127.0.0.1:8000
         env:
           CYPRESS_RECORD_KEY: a3507380-0c6e-4817-9b9d-04fa9e413e95
           GITHUB_TOKEN: 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
