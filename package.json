@@ -34,5 +34,10 @@
         "cypress-file-upload": "^5.0.8",
         "hotkeys-js": "^3.8.7",
         "quill": "^1.3.6"
-    }
+    },
+     "browserslist": [
+    "defaults",
+    "not IE 11",
+    "maintained node versions"
+  ]
 }
