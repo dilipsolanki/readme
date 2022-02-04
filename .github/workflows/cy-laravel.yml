@@ -12,8 +12,22 @@ jobs:
       # and run all Cypress tests
       - name: NPM install
         run: npm install
+      - name: Download the build folders
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: build
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          # we have already installed all dependencies above
+          install: false
+          start: npm start:ci
+          wait-on: 'http://localhost:3000'
+          wait-on-timeout: 120
+          browser: chrome
+          record: true
+          parallel: true
+          group: 'UI - Chrome'
           build: npm run build
           start: npm start
