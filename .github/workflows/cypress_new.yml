@@ -11,6 +11,12 @@ jobs:
         run: composer install
       - name: Npm install
         run: npm install
+      - name: Composer 
+        run: composer require laracasts/cypress --dev
+      - name: Clear cache
+        run:  php artisan optimize
+      - name: cypress:boilerplate
+        run: php artisan cypress:boilerplate
           # Cypress
       - name: Cypress verify
         run: npx cypress verify
