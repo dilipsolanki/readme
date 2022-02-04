@@ -16,6 +16,8 @@ jobs:
         run: rm -rf /home/runner/.cache/Cypress
       - name : Cypres Install
         run:  npx cypress install
+      - name: brooowser update
+        run: npx browserslist@latest --update-db
       - name: Composer 
         run: composer require laracasts/cypress --dev
       - name: Clear cache
