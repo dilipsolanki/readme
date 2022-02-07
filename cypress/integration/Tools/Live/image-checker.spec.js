@@ -5,6 +5,7 @@ import {
 } from '../../../support/helper'
 
 beforeEach(() => {
+     Cypress.Cookies.debug(true)
     Cypress.env()
     cy.visit({
         route: 'labs-login'
