@@ -81,9 +81,9 @@ Cypress.Commands.add('csrfToken', () => {
         .request({
             method: 'GET',
             url: '/__cypress__/csrf_token',
-            log: false,
+            log: true,
         })
-        .its('body', { log: false });
+        .its('body', { log: true });
 });
 
 /**
