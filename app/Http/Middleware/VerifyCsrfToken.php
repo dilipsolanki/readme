@@ -13,6 +13,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         'hubble/callback',
-        'labs-login'
+        'labs-login',
+        'login'
     ];
 }
