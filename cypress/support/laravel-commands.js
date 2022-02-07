@@ -7,30 +7,9 @@
  *          cy.login({ name: 'JohnDoe' });
  */
 Cypress.Commands.add('login', (attributes = {}) => {
-//     return cy
-//         .csrfToken()
-//         .then((token) => {
-//             return cy.request({
-//                 method: 'POST',
-//                 url: '/__cypress__/login',
-//                 body: { attributes, _token: token },
-//                 log: false
-//             });
-//         })
-//         .then(({ body }) => {
-//             Cypress.Laravel.currentUser = body;
-
-//             Cypress.log({
-//                 name: 'login',
-//                 message: attributes,
-//                 consoleProps: () => ({ user: body }),
-//             });
-//         })
-//         .its('body', { log: false });
     return cy
-
+        // 
         .then(() => {
-
             return cy.request({
                 method: 'POST',
                 url: '/__cypress__/login',
@@ -57,8 +36,8 @@ Cypress.Commands.add('login', (attributes = {}) => {
  */
 Cypress.Commands.add('logout', () => {
     return cy
-        .csrfToken()
-        .then((token) => {
+
+        .then(() => {
             return cy.request({
                 method: 'POST',
                 url: '/__cypress__/logout',
@@ -74,17 +53,17 @@ Cypress.Commands.add('logout', () => {
 /**
  * Fetch a CSRF token.
  *
- * @example cy.csrfToken();
+ * @example cy;
  */
-Cypress.Commands.add('csrfToken', () => {
-    return cy
-        .request({
-            method: 'GET',
-            url: '/__cypress__/csrf_token',
-            log: true,
-        })
-        .its('body', { log: true });
-});
+// Cypress.Commands.add('csrfToken', () => {
+//     return cy
+//         .request({
+//             method: 'GET',
+//             url: '/__cypress__/csrf_token',
+//             log: false,
+//         })
+//         .its('body', { log: true });
+// });
 
 /**
  * Fetch and store all named routes.
@@ -92,7 +71,7 @@ Cypress.Commands.add('csrfToken', () => {
  * @example cy.refreshRoutes();
  */
 Cypress.Commands.add('refreshRoutes', () => {
-    return cy.csrfToken().then((token) => {
+    return cy.then(() => {
         return cy
             .request({
                 method: 'POST',
@@ -159,12 +138,12 @@ Cypress.Commands.add('create', (model, times = 1, attributes = {}, relations = [
     }
 
     return cy
-        .csrfToken()
-        .then((token) => {
+
+        .then(() => {
             return cy.request({
                 method: 'POST',
                 url: '/__cypress__/factory',
-                body: { attributes, model, times, relations, _token: token },
+                body: { attributes, model, times, relations },
                 log: false
             });
         })
@@ -226,11 +205,11 @@ Cypress.Commands.add('artisan', (command, parameters = {}, options = {}) => {
         });
     }
 
-    return cy.csrfToken().then((token) => {
+    return cy.then(() => {
         return cy.request({
             method: 'POST',
             url: '/__cypress__/artisan',
-            body: { command: command, parameters: parameters, _token: token },
+            body: { command: command, parameters: parameters },
             log: false
         });
     });
@@ -246,12 +225,12 @@ Cypress.Commands.add('artisan', (command, parameters = {}, options = {}) => {
  */
 Cypress.Commands.add('php', (command) => {
     return cy
-        .csrfToken()
-        .then((token) => {
+
+        .then(() => {
             return cy.request({
                 method: 'POST',
                 url: '/__cypress__/run-php',
-                body: { command: command, _token: token },
+                body: { command: command },
                 log: false
             });
         })
