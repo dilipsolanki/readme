@@ -8,11 +8,12 @@
  */
 Cypress.Commands.add('login', (attributes = {}) => {
     return cy
+
         .then(() => {
             return cy.request({
                 method: 'POST',
                 url: '/__cypress__/login',
-                body: { attributes },
+                body: { attributes, _token: 'aDHAPo8rP6U9TraIP2vY3LusFslOQ5Xydt02eXfS' },
                 log: false
             });
         })
@@ -35,11 +36,12 @@ Cypress.Commands.add('login', (attributes = {}) => {
  */
 Cypress.Commands.add('logout', () => {
     return cy
+
         .then(() => {
             return cy.request({
                 method: 'POST',
                 url: '/__cypress__/logout',
-                body: {},
+                body: { _token: 'aDHAPo8rP6U9TraIP2vY3LusFslOQ5Xydt02eXfS' },
                 log: false
             });
         })
@@ -53,15 +55,15 @@ Cypress.Commands.add('logout', () => {
  *
  * @example cy;
  */
-// Cypress.Commands.add('csrfToken', () => {
-//     return cy
-//         .request({
-//             method: 'GET',
-//             url: '/__cypress__/csrf_token',
-//             log: false,
-//         })
-//         .its('body', { log: true });
-// });
+Cypress.Commands.add('csrfToken', () => {
+    return cy
+        .request({
+            method: 'GET',
+            url: '/__cypress__/csrf_token',
+            log: false,
+        })
+        .its('body', { log: false });
+});
 
 /**
  * Fetch and store all named routes.
@@ -74,7 +76,7 @@ Cypress.Commands.add('refreshRoutes', () => {
             .request({
                 method: 'POST',
                 url: '/__cypress__/routes',
-                body: {},
+                body: { _token: 'aDHAPo8rP6U9TraIP2vY3LusFslOQ5Xydt02eXfS' },
                 log: false
             })
             .its('body', { log: false })
@@ -141,7 +143,7 @@ Cypress.Commands.add('create', (model, times = 1, attributes = {}, relations = [
             return cy.request({
                 method: 'POST',
                 url: '/__cypress__/factory',
-                body: { attributes, model, times, relations },
+                body: { attributes, model, times, relations, _token: 'aDHAPo8rP6U9TraIP2vY3LusFslOQ5Xydt02eXfS' },
                 log: false
             });
         })
@@ -207,7 +209,7 @@ Cypress.Commands.add('artisan', (command, parameters = {}, options = {}) => {
         return cy.request({
             method: 'POST',
             url: '/__cypress__/artisan',
-            body: { command: command, parameters: parameters },
+            body: { command: command, parameters: parameters, _token: 'aDHAPo8rP6U9TraIP2vY3LusFslOQ5Xydt02eXfS' },
             log: false
         });
     });
@@ -228,7 +230,7 @@ Cypress.Commands.add('php', (command) => {
             return cy.request({
                 method: 'POST',
                 url: '/__cypress__/run-php',
-                body: { command: command },
+                body: { command: command, _token: 'aDHAPo8rP6U9TraIP2vY3LusFslOQ5Xydt02eXfS' },
                 log: false
             });
         })
