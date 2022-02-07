@@ -8,7 +8,6 @@
  */
 Cypress.Commands.add('login', (attributes = {}) => {
     return cy
-        // 
         .then(() => {
             return cy.request({
                 method: 'POST',
@@ -36,12 +35,11 @@ Cypress.Commands.add('login', (attributes = {}) => {
  */
 Cypress.Commands.add('logout', () => {
     return cy
-
         .then(() => {
             return cy.request({
                 method: 'POST',
                 url: '/__cypress__/logout',
-                body: { _token: token },
+                body: {},
                 log: false
             });
         })
@@ -76,7 +74,7 @@ Cypress.Commands.add('refreshRoutes', () => {
             .request({
                 method: 'POST',
                 url: '/__cypress__/routes',
-                body: { _token: token },
+                body: {},
                 log: false
             })
             .its('body', { log: false })
