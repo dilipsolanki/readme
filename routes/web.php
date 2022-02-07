@@ -51,7 +51,7 @@ $enableViews = config('fortify.views', true);
 // Authentication...
 if ($enableViews) {
     Route::get('labs-login', [AuthenticatedSessionController::class, 'create'])
-        ->middleware(['guest:' . config('fortify.guard')])
+        // ->middleware(['guest:' . config('fortify.guard')])
         ->name('labs-login');
 }
 
