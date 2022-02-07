@@ -7,13 +7,34 @@
  *          cy.login({ name: 'JohnDoe' });
  */
 Cypress.Commands.add('login', (attributes = {}) => {
+//     return cy
+//         .csrfToken()
+//         .then((token) => {
+//             return cy.request({
+//                 method: 'POST',
+//                 url: '/__cypress__/login',
+//                 body: { attributes, _token: token },
+//                 log: false
+//             });
+//         })
+//         .then(({ body }) => {
+//             Cypress.Laravel.currentUser = body;
+
+//             Cypress.log({
+//                 name: 'login',
+//                 message: attributes,
+//                 consoleProps: () => ({ user: body }),
+//             });
+//         })
+//         .its('body', { log: false });
     return cy
-        .csrfToken()
-        .then((token) => {
+
+        .then(() => {
+
             return cy.request({
                 method: 'POST',
                 url: '/__cypress__/login',
-                body: { attributes, _token: token },
+                body: { attributes },
                 log: false
             });
         })
