@@ -6,9 +6,7 @@ import {
 
 beforeEach(() => {
     Cypress.env()
-    cy.visit({
-        route: 'labs-login'
-    });
+    cy.visit('labs-login');
     cy.get('#email').type(email);
     cy.get('#password').type(password);
     cy.get('#email').invoke('val').should('not.be.empty');
@@ -31,16 +29,12 @@ it('Welcome at Global Cactus Landing Page', () => {
     cy.wait(200);
 });
 it('Select tool of hubble and enter text', () => {
-    cy.visit({
-        route: 'dashboard'
-    });
+    cy.visit('dashboard');
     cy.get(':nth-child(2) > .h-full > .relative > .absolute > div > .flex > span').click().should('have.length', 1);
     cy.wait(500);
 });
 it('Run hubble with correct text', () => {
-    cy.visit({
-        route: 'dashboard'
-    });
+    cy.visit('dashboard');
     cy.get(':nth-child(2) > .h-full > .relative > .absolute > div > .flex > span').click();
     cy.wait(500);
     cy.get('#enteredText').focus().should('have.class', 'py-4').type('In searching for life in extraterrestrial space, it is essential to act based on an unequivocal definition of life. In the twentieth century, life was defined as cells that self-replicate, metabolize, and are open to mutations.');
@@ -55,9 +49,7 @@ it('Run hubble with correct text', () => {
 it('Run hubble with Generate sample and Apply correct suggestions', () => {
     var listingCount;
     var count;
-    cy.visit({
-        route: 'dashboard'
-    });
+    cy.visit('dashboard');
     cy.get(':nth-child(2) > .h-full > .relative > .absolute > div > .flex > span').click();
     cy.wait(500)
     cy.get('#generateSampleText').click();
@@ -83,9 +75,7 @@ it('Run hubble with Generate sample and Apply correct suggestions', () => {
     cy.wait(1000);
 });
 it('Run hubble with Generate sample, Accept All and Undo All', () => {
-    cy.visit({
-        route: 'dashboard'
-    });
+    cy.visit('dashboard');
     cy.get(':nth-child(2) > .h-full > .relative > .absolute > div > .flex > span').click();
     cy.wait(500)
     cy.get('#generateSampleText').click();
@@ -101,9 +91,7 @@ it('Run hubble with Generate sample, Accept All and Undo All', () => {
 });
 it('Run hubble with incorrect text and Decline suggestions', () => {
     var listingCount, count;
-    cy.visit({
-        route: 'dashboard'
-    });
+    cy.visit('dashboard');
     cy.get(':nth-child(2) > .h-full > .relative > .absolute > div > .flex > span').click();
     cy.wait(500);
     cy.get('#enteredText').focus().should('have.class', 'py-4').type('In searching for life in extraterrestrial space, it is essential to act based on an unequivocal definition of life. In the twentieth century, life was defined as cells tsat self-replsicate, metabsolize, and are open for mutations, without which genetic information would remain unchangeable, and evolution would be impossible.');
@@ -130,9 +118,7 @@ it('Run hubble with incorrect text and Decline suggestions', () => {
 });
 it('Submit feedback of Report inaccurate', () => {
     var listingCount, count;
-    cy.visit({
-        route: 'dashboard'
-    });
+    cy.visit('dashboard');
     cy.get(':nth-child(2) > .h-full > .relative > .absolute > div > .flex > span').click();
     cy.wait(500);
     cy.get('#enteredText').focus().should('have.class', 'py-4').type('In searching for life in extraterrestrial space, it is essential to act based on an unequivocal definition of life. In the twentieth century, life was defined as cells tsat self-replsicate, metabsolize, and are open for mutations, without which genetic information would remain unchangeable, and evolution would be impossible.');
@@ -161,9 +147,7 @@ it('Submit feedback of Report inaccurate', () => {
     cy.wait(1000);
 });
 it('Run hubble without Recommended Prefs and with Suppression Type Regular', () => {
-    cy.visit({
-        route: 'dashboard'
-    });
+    cy.visit('dashboard');
     cy.get(':nth-child(2) > .h-full > .relative > .absolute > div > .flex > span').click();
     cy.wait(500);
     cy.contains("Recommended Prefs").first().click();
@@ -176,9 +160,7 @@ it('Run hubble without Recommended Prefs and with Suppression Type Regular', () 
     cy.wait(20000);
 });
 it('Run hubble without Recommended Prefs and with Suppression Type Lite', () => {
-    cy.visit({
-        route: 'dashboard'
-    });
+    cy.visit('dashboard');
     cy.get(':nth-child(2) > .h-full > .relative > .absolute > div > .flex > span').click();
     cy.wait(500);
     cy.contains("Recommended Prefs").first().click();
@@ -193,9 +175,7 @@ it('Run hubble without Recommended Prefs and with Suppression Type Lite', () => 
     cy.wait(25000);
 });
 it('Run hubble without Recommended Prefs and without Chunk Edits Suppression', () => {
-    cy.visit({
-        route: 'dashboard'
-    });
+    cy.visit('dashboard');
     cy.get(':nth-child(2) > .h-full > .relative > .absolute > div > .flex > span').click();
     cy.wait(500);
     cy.contains("Recommended Prefs").first().click();
@@ -210,9 +190,7 @@ it('Run hubble without Recommended Prefs and without Chunk Edits Suppression', (
     cy.wait(20000);
 });
 it('Run hubble with Recommended Prefs, Model Gemini, language US, Chunk Edits Suppression and Suppression Type Lite', () => {
-    cy.visit({
-        route: 'dashboard'
-    });
+    cy.visit('dashboard');
     cy.get(':nth-child(2) > .h-full > .relative > .absolute > div > .flex > span').click();
     cy.wait(500);
     cy.contains("Select Language").first().click();
@@ -227,9 +205,7 @@ it('Run hubble with Recommended Prefs, Model Gemini, language US, Chunk Edits Su
     cy.wait(20000);
 });
 it('Run hubble without Recommended Prefs, Model Phoenix, language US, Chunk Edits Suppression and Suppression Type Lite', () => {
-    cy.visit({
-        route: 'dashboard'
-    });
+    cy.visit('dashboard');
     cy.get(':nth-child(2) > .h-full > .relative > .absolute > div > .flex > span').click();
     cy.wait(500);
     cy.contains("Phoenix (1st Gen)").first().click();
@@ -246,9 +222,7 @@ it('Run hubble without Recommended Prefs, Model Phoenix, language US, Chunk Edit
     cy.wait(20000);
 });
 it('Run hubble without Recommended Prefs, Model Lynx, language US, Chunk Edits Suppression and Suppression Type Lite', () => {
-    cy.visit({
-        route: 'dashboard'
-    });
+    cy.visit('dashboard');
     cy.get(':nth-child(2) > .h-full > .relative > .absolute > div > .flex > span').click();
     cy.wait(500);
     cy.contains("Lynx (3rd Gen)").first().click();
