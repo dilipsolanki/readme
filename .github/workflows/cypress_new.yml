@@ -43,24 +43,22 @@ jobs:
       - name: Composer update 
         run: composer install
         #run: npx cypress cache path
-      - name: Clear cypress cache 
-        run: rm -rf /home/runner/.cache/Cypress
-      - name : Cypres Install
-        run:  npx cypress install
-      - name: brooowser update
-        run: npx browserslist@latest --update-db
-      - name: Composer 
-        run: composer require laracasts/cypress --dev
+      # - name: Clear cypress cache 
+        # run: rm -rf /home/runner/.cache/Cypress
+      # - name : Cypres Install
+        # run:  npx cypress install
+      # - name: Composer 
+        # run: composer require laracasts/cypress --dev
       - name: Clear cache
-        run:  php artisan optimize
-      - name: cypress:boilerplate
-        run: php artisan cypress:boilerplate
+        run:  php artisan route:clear
+      # - name: cypress:boilerplate
+        # run: php artisan cypress:boilerplate
       - name: PHP Start
-        run: php artisan serve &
+        run: php artisan serve & ./node_modules/.bin/cypress run
       # run: nohup php artisan serve &
 #       - name: Export key
 #         run: export CYPRESS_RECORD_KEY=a3507380-0c6e-4817-9b9d-04fa9e413e95
-      - name: cypress run
+      # - name: cypress run
 #         run:  npx cypress run --record --key a3507380-0c6e-4817-9b9d-04fa9e413e95
-        run: ./node_modules/.bin/cypress run
+        # run: ./node_modules/.bin/cypress run
 
