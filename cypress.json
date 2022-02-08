@@ -9,8 +9,8 @@
     "env": {
         "environment": "local",
         "local_server_login_details": {
-            "user_name": "cytest@local.com",
-            "password": "123456"
+            "user_name": "admin@admin.com",
+            "password": "coldcold"
         },
         "test_server_login_details": {
             "user_name": "cytest@test.com",

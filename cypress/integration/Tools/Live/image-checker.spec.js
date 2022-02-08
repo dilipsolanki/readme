@@ -5,7 +5,6 @@ import {
 } from '../../../support/helper'
 
 beforeEach(() => {
-     Cypress.Cookies.debug(true)
     Cypress.env()
     cy.visit('labs-login');
     cy.get('#email').type(email);
@@ -15,17 +14,17 @@ beforeEach(() => {
     cy.get('form').submit().should('be.visible');
     cy.wait(1000);
 });
-afterEach(() => {
-    //Log off user
-    cy.exec('php artisan manage:user ' + email + ' ' + password + ' ' + 1);
-});
-after(() => {
-    //Log off user
-    cy.exec('php artisan manage:user ' + email + ' ' + password + ' ' + 1);
-    cy.visit({
-        route: 'labs-login'
-    });
-});
+// afterEach(() => {
+//     //Log off user
+//     cy.exec('php artisan manage:user ' + email + ' ' + password + ' ' + 1);
+// });
+// after(() => {
+//     //Log off user
+//     cy.exec('php artisan manage:user ' + email + ' ' + password + ' ' + 1);
+//     cy.visit({
+//         route: 'labs-login'
+//     });
+// });
 it('Welcome at Global Cactus Landing Page', () => {
     cy.wait(200);
 });
