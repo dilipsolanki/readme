@@ -1,0 +1,19 @@
+name: Cypress tests
+on: [push]
+jobs:
+  cypress-run:
+    name: Cypress run
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Npm install
+        run: npm install
+      - name: Composer update 
+        run: composer install
+      - name: key generate
+        run: php artisan key:generate
+      - name: Clear Config
+        run: php artisan config:clear
+      - name: PHP Start
+        run: php artisan serve & ./node_modules/.bin/cypress run
