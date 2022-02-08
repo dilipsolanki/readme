@@ -6,9 +6,7 @@ import {
 
 beforeEach(() => {
     Cypress.env()
-    cy.visit({
-        route: 'labs-login'
-    });
+    cy.visit('labs-login');
     cy.get('#email').type(email);
     cy.get('#password').type(password);
     cy.get('#email').invoke('val').should('not.be.empty');
@@ -24,24 +22,18 @@ after(() => {
     //Log off user
     cy.wait(2000);
     cy.exec('php artisan manage:user ' + email + ' ' + password + ' ' + 1);
-    cy.visit({
-        route: 'labs-login'
-    });
+    cy.visit('labs-login');
 });
 it('Welcome at Global Cactus Landing Page', () => {
     cy.wait(200);
 });
 it('Select tool of Scholarcy', () => {
-    cy.visit({
-        route: 'dashboard'
-    });
+    cy.visit('dashboard');
     cy.get(':nth-child(10) > .h-full > .relative > .absolute > div > .flex > span').click().should('have.length', 1);
     cy.wait(500);
 });
 it('Run scholarcy and upload pdf file and explore Meta Data and check Author, Abstract', () => {
-    cy.visit({
-        route: 'dashboard'
-    });
+    cy.visit('dashboard');
     cy.get(':nth-child(10) > .h-full > .relative > .absolute > div > .flex > span').click();
     cy.get('input[type=file]').attachFile('test.pdf', 'application/pdf').click({ force: true });
     cy.wait(20000);
@@ -51,9 +43,7 @@ it('Run scholarcy and upload pdf file and explore Meta Data and check Author, Ab
     cy.wait(2000);
 });
 it('Run scholarcy and upload pdf file and explore Summary', () => {
-    cy.visit({
-        route: 'dashboard'
-    });
+    cy.visit('dashboard');
     cy.get(':nth-child(10) > .h-full > .relative > .absolute > div > .flex > span').click();
     cy.get('input[type=file]').attachFile('test.pdf', 'application/pdf').click({ force: true });
     cy.wait(20000);
@@ -64,9 +54,7 @@ it('Run scholarcy and upload pdf file and explore Summary', () => {
     cy.wait(2000);
 });
 it('Run scholarcy and upload pdf file and explore Highlights', () => {
-    cy.visit({
-        route: 'dashboard'
-    });
+    cy.visit('dashboard');
     cy.get(':nth-child(10) > .h-full > .relative > .absolute > div > .flex > span').click();
     cy.get('input[type=file]').attachFile('test.pdf', 'application/pdf').click({ force: true });
     cy.wait(20000);
@@ -77,9 +65,7 @@ it('Run scholarcy and upload pdf file and explore Highlights', () => {
     cy.wait(2000);
 });
 it('Run scholarcy and upload doc file and explore Meta Data and check Author, Abstract', () => {
-    cy.visit({
-        route: 'dashboard'
-    });
+    cy.visit('dashboard');
     cy.get(':nth-child(10) > .h-full > .relative > .absolute > div > .flex > span').click();
     cy.get('input[type=file]').attachFile('test.doc', 'application/msword').click({ force: true });
     cy.wait(20000);
@@ -89,9 +75,7 @@ it('Run scholarcy and upload doc file and explore Meta Data and check Author, Ab
     cy.wait(2000);
 });
 it('Run scholarcy and upload doc file and explore Summary', () => {
-    cy.visit({
-        route: 'dashboard'
-    });
+    cy.visit('dashboard');
     cy.get(':nth-child(10) > .h-full > .relative > .absolute > div > .flex > span').click();
     cy.get('input[type=file]').attachFile('test.doc', 'application/msword').click({ force: true });
     cy.wait(20000);
@@ -102,9 +86,7 @@ it('Run scholarcy and upload doc file and explore Summary', () => {
     cy.wait(2000);
 });
 it('Run scholarcy and upload doc file and explore Highlights', () => {
-    cy.visit({
-        route: 'dashboard'
-    });
+    cy.visit('dashboard');
     cy.get(':nth-child(10) > .h-full > .relative > .absolute > div > .flex > span').click();
     cy.get('input[type=file]').attachFile('test.doc', 'application/msword').click({ force: true });
     cy.wait(20000);

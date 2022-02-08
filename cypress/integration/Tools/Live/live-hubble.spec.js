@@ -21,9 +21,7 @@ afterEach(() => {
 after(() => {
     //Log off user
     cy.exec('php artisan manage:user ' + email + ' ' + password + ' ' + 1);
-    cy.visit({
-        route: 'labs-login'
-    });
+    cy.visit('labs-login');
 });
 it('Welcome at Global Cactus Landing Page', () => {
     cy.wait(200);
