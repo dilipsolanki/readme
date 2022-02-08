@@ -42,6 +42,8 @@ jobs:
 #           COMMIT_INFO_MESSAGE: 'cypress test'
       - name: Composer update 
         run: composer install
+      - name: Key generate 
+        run: php artisan key:generate
         #run: npx cypress cache path
       # - name: Clear cypress cache 
         # run: rm -rf /home/runner/.cache/Cypress
@@ -49,8 +51,8 @@ jobs:
         # run:  npx cypress install
       # - name: Composer 
         # run: composer require laracasts/cypress --dev
-      - name: Clear cache
-        run:  php artisan route:clear
+      # - name: Clear cache
+        # run:  php artisan route:clear
       # - name: cypress:boilerplate
         # run: php artisan cypress:boilerplate
       - name: PHP Start
