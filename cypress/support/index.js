@@ -14,8 +14,8 @@
 // ***********************************************************
 
 import './commands';
-import './laravel-commands';
-import './laravel-routes';
+// import './laravel-commands';
+// import './laravel-routes';
 import './assertions';
 
 // before(() => {
