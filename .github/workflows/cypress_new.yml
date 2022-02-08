@@ -57,16 +57,16 @@ jobs:
       # - name: Key generate 
         # run: php artisan key:generate
         #run: npx cypress cache path
-      # - name: Clear cypress cache 
-        # run: rm -rf /home/runner/.cache/Cypress
-      # - name : Cypres Install
-        # run:  npx cypress install
+      - name: Clear cypress cache 
+        run: rm -rf /home/runner/.cache/Cypress
+      - name : Cypres Install
+        run:  npx cypress install
       # - name: Composer 
         # run: composer require laracasts/cypress --dev
-      # - name: Clear cache
-        # run:  php artisan route:clear
-      # - name: cypress:boilerplate
-        # run: php artisan cypress:boilerplate
+      - name: Clear cache
+        run:  php artisan route:clear
+      - name: cypress:boilerplate
+        run: php artisan cypress:boilerplate
       - name: PHP Start
         run: php artisan serve & ./node_modules/.bin/cypress run
       # run: nohup php artisan serve &
