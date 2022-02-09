@@ -22,9 +22,15 @@ jobs:
         # run:  php artisan optimize
       # - name: cypress:boilerplate
         # run: php artisan cypress:boilerplate
-      - name: PHP Start
+      - name: npm install, build, and test
         run: |
-         nohup php artisan serve --port 8000 &
+         npm ci
+         npm run build --if-present
+         npm start &
+         npx wait-on http://localhost:3000
+#       - name: PHP Start
+#         run: |
+#          nohup php artisan serve --port 8000 &
 #         run: php artisan serve & ./node_modules/.bin/cypress run
       # run: nohup php artisan serve &
 #       - name: Export key
