@@ -18,8 +18,6 @@ jobs:
         # run:  npx cypress install
       # - name: Composer 
         # run: composer require laracasts/cypress --dev
-      - name: Set permission 
-        run : chmod -R 775 storage/app/ 
       - name: Clear cache
         run:  php artisan optimize
       # - name: cypress:boilerplate
