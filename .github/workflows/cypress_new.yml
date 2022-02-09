@@ -23,12 +23,7 @@ jobs:
       # - name: cypress:boilerplate
         # run: php artisan cypress:boilerplate
       - name: PHP Start
-#         run: |
-#          nohup php artisan serve --port 8000 &
-#         run: php artisan serve & ./node_modules/.bin/cypress run
-        run: nohup php artisan serve &
-#       - name: Export key
-#         run: export CYPRESS_RECORD_KEY=a3507380-0c6e-4817-9b9d-04fa9e413e95
+        run: php artisan serve &
       - name: cypress run
         run:  npx cypress run
 #         run:  npx cypress run --record --key a3507380-0c6e-4817-9b9d-04fa9e413e95
