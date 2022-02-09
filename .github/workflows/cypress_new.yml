@@ -24,7 +24,7 @@ jobs:
         # run: php artisan cypress:boilerplate
       - name: PHP Start
         run: |
-         nohup start-http-server 8000 &
+         nohup php artisan serve &
          curl http://127.0.0.1:8000/
 #         run: php artisan serve & ./node_modules/.bin/cypress run
       # run: nohup php artisan serve &
