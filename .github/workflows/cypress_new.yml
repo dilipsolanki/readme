@@ -28,7 +28,7 @@ jobs:
 #         run: |
 #          nohup php artisan serve --port 8000 &
 #         run: php artisan serve & ./node_modules/.bin/cypress run
-      run: nohup php artisan serve &
+        run: nohup php artisan serve &
 #       - name: Export key
 #         run: export CYPRESS_RECORD_KEY=a3507380-0c6e-4817-9b9d-04fa9e413e95
       - name: cypress run
