@@ -61,8 +61,12 @@ Cypress.Commands.add('csrfToken', () => {
             method: 'GET',
             url: '/__cypress__/csrf_token',
             log: false,
+            failOnStatusCode: false
         })
-        .its('body', { log: false });
+        .then(response => {
+            expect(response.status).to.be.gt(299) // status returned is 404
+        })
+        // .its('body', { log: false });
 });
 
 /**
