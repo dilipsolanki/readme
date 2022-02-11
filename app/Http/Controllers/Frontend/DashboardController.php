@@ -20,6 +20,7 @@ class DashboardController extends Controller
         if (!empty($faveTools)) {
             $faveTools = explode(',', rtrim($faveTools[0], ','));
         }
+        echo "my test";
         return view('dashboard', ['tools' => $tools, 'faveTools' => $faveTools]);
     }
 
