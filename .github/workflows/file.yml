@@ -25,5 +25,6 @@ jobs:
         with: 
          path: 'cypress/reports/output.json'
          prop_path: 'stats.tests'
+      - name: Run nested property  
         if: ${{steps.format_script.outputs.prop}} != 4
-      - run: echo ${{steps.format_script.outputs.prop}}
+        run: echo ${{steps.format_script.outputs.prop}}
