@@ -20,4 +20,4 @@ jobs:
         # Only runs if all of the files exists
         run: echo All files exists!
       - name: Run file on browser
-        run: google-chrome cypress/reports/index.html
+        run: google-chrome /home/runner/work/readme/readme/cypress/reports/index.html
