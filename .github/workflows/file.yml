@@ -25,7 +25,9 @@ jobs:
         with: 
          path: 'cypress/reports/output.json'
          prop_path: 'stats.failures'
-         failed_when:  ${{steps.format_script.outputs.prop}} > 0
-#          if: ${{steps.format_script.outputs.prop}} == 0
-#          allow_failure: true
+      - name: check if httpd is running 
+        if: ${{steps.format_script.outputs.prop}} > 0
+         then
+         echo "The variable is greater than 10."
+         fi
 
