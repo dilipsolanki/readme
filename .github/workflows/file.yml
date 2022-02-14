@@ -14,6 +14,7 @@ jobs:
         uses: andstor/file-existence-action@v1
         with:
           files: "cypress/reports/output.json"
+
       - name: File exists
         if: steps.check_files.outputs.files_exists == 'true'
         # Only runs if all of the files exists
@@ -23,10 +24,6 @@ jobs:
         uses: notiz-dev/github-action-json-property@release
         with: 
          path: 'cypress/reports/output.json'
-         prop_path: 'stats.tests'
-      - name: Run nested property  
-        run: |
-          if ${{steps.format_script.outputs.prop}} == "4" then
-             run: echo ${{steps.format_script.outputs.prop}}
-          fi
-
+         prop_path: 'stats.failures'
+        if: ${{steps.format_script.outputs.prop}} == 0
+      - run: echo  ${{steps.format_script.outputs.prop}} 
