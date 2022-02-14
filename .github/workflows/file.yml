@@ -27,6 +27,6 @@ jobs:
          prop_path: 'stats.tests'
       - name: Run nested property  
         if: ${{steps.format_script.outputs.prop}} == 4
-        continue-on-error: true
+        continue-on-error: false
         run: echo ${{steps.format_script.outputs.prop}}
 
