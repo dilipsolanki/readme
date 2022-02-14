@@ -1,15 +1,15 @@
 {
   "stats": {
     "suites": 0,
-    "tests": 8,
+    "tests": 2,
     "passes": 1,
     "pending": 0,
-    "failures": 7,
-    "start": "2022-02-14T09:49:54.292Z",
-    "end": "2022-02-14T09:57:42.732Z",
-    "duration": 468440,
-    "testsRegistered": 8,
-    "passPercent": 12.5,
+    "failures": 1,
+    "start": "2022-02-14T10:38:43.728Z",
+    "end": "2022-02-14T10:39:56.665Z",
+    "duration": 72937,
+    "testsRegistered": 2,
+    "passPercent": 50,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "b5008000-fb25-4b21-91e4-8b4783e7cd95",
+      "uuid": "5e8ff0af-737f-4ee9-a736-e06de54ee3cd",
       "title": "",
       "fullFile": "cypress/integration/Tools/Live/scholarcy.spec.js",
       "file": "cypress/integration/Tools/Live/scholarcy.spec.js",
@@ -29,7 +29,7 @@
           "title": "Welcome at Global Cactus Landing Page",
           "fullTitle": "Welcome at Global Cactus Landing Page",
           "timedOut": null,
-          "duration": 4663,
+          "duration": 4532,
           "state": "passed",
           "speed": "fast",
           "pass": true,
@@ -38,8 +38,8 @@
           "context": null,
           "code": "cy.wait(200);",
           "err": {},
-          "uuid": "fa707da9-02de-4315-b48e-26775cf33d76",
-          "parentUUID": "b5008000-fb25-4b21-91e4-8b4783e7cd95",
+          "uuid": "493a8ccf-64c0-4c65-93dc-3a5a2ccb62dc",
+          "parentUUID": "5e8ff0af-737f-4ee9-a736-e06de54ee3cd",
           "isHook": false,
           "skipped": false
         },
@@ -47,7 +47,7 @@
           "title": "Select tool of Scholarcy",
           "fullTitle": "Select tool of Scholarcy",
           "timedOut": null,
-          "duration": 64428,
+          "duration": 64050,
           "state": "failed",
           "speed": null,
           "pass": false,
@@ -60,160 +60,22 @@
             "estack": "AssertionError: Timed out retrying after 60000ms: Expected to find element: `:nth-child(10) > .h-full > .relative > .absolute > div > .flex > span`, but never found it.\n    at Context.eval (http://127.0.0.1:8000/__cypress/tests?p=cypress/integration/Tools/Live/scholarcy.spec.js:127:6)",
             "diff": null
           },
-          "uuid": "ab7cbdd9-6ced-40ed-bc49-2719712edf67",
-          "parentUUID": "b5008000-fb25-4b21-91e4-8b4783e7cd95",
-          "isHook": false,
-          "skipped": false
-        },
-        {
-          "title": "Run scholarcy and upload pdf file and explore Meta Data and check Author, Abstract",
-          "fullTitle": "Run scholarcy and upload pdf file and explore Meta Data and check Author, Abstract",
-          "timedOut": null,
-          "duration": 65287,
-          "state": "failed",
-          "speed": null,
-          "pass": false,
-          "fail": true,
-          "pending": false,
-          "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"/Tools/Live/scholarcy.spec.js/Run scholarcy and upload pdf file and explore Meta Data and check Author, Abstract (failed).png\"\n      }\n    ]\n  ]\n}",
-          "code": "cy.visit('dashboard');\ncy.get(':nth-child(10) > .h-full > .relative > .absolute > div > .flex > span').click();\ncy.get('input[type=file]').attachFile('test.pdf', 'application/pdf').click({\n  force: true\n});\ncy.wait(20000);\ncy.get(\"#Meta\").first().click({\n  force: true\n});\ncy.wait(2000);\ncy.get(\"#Meta\").first().click({\n  force: true\n});\ncy.wait(2000);",
-          "err": {
-            "message": "AssertionError: Timed out retrying after 60000ms: Expected to find element: `:nth-child(10) > .h-full > .relative > .absolute > div > .flex > span`, but never found it.",
-            "estack": "AssertionError: Timed out retrying after 60000ms: Expected to find element: `:nth-child(10) > .h-full > .relative > .absolute > div > .flex > span`, but never found it.\n    at Context.eval (http://127.0.0.1:8000/__cypress/tests?p=cypress/integration/Tools/Live/scholarcy.spec.js:132:6)",
-            "diff": null
-          },
-          "uuid": "84062b18-e35b-4972-9040-fe411d40ece6",
-          "parentUUID": "b5008000-fb25-4b21-91e4-8b4783e7cd95",
-          "isHook": false,
-          "skipped": false
-        },
-        {
-          "title": "Run scholarcy and upload pdf file and explore Summary",
-          "fullTitle": "Run scholarcy and upload pdf file and explore Summary",
-          "timedOut": null,
-          "duration": 64846,
-          "state": "failed",
-          "speed": null,
-          "pass": false,
-          "fail": true,
-          "pending": false,
-          "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"/Tools/Live/scholarcy.spec.js/Run scholarcy and upload pdf file and explore Summary (failed).png\"\n      }\n    ]\n  ]\n}",
-          "code": "cy.visit('dashboard');\ncy.get(':nth-child(10) > .h-full > .relative > .absolute > div > .flex > span').click();\ncy.get('input[type=file]').attachFile('test.pdf', 'application/pdf').click({\n  force: true\n});\ncy.wait(20000);\ncy.scrollTo(0, 400);\ncy.get(\"#Summary\").first().click({\n  force: true\n});\ncy.wait(2000);\ncy.get(\"#Summary\").first().click({\n  force: true\n});\ncy.wait(2000);",
-          "err": {
-            "message": "AssertionError: Timed out retrying after 60000ms: Expected to find element: `:nth-child(10) > .h-full > .relative > .absolute > div > .flex > span`, but never found it.",
-            "estack": "AssertionError: Timed out retrying after 60000ms: Expected to find element: `:nth-child(10) > .h-full > .relative > .absolute > div > .flex > span`, but never found it.\n    at Context.eval (http://127.0.0.1:8000/__cypress/tests?p=cypress/integration/Tools/Live/scholarcy.spec.js:148:6)",
-            "diff": null
-          },
-          "uuid": "08815cc8-28b3-497b-8276-6279a313e65d",
-          "parentUUID": "b5008000-fb25-4b21-91e4-8b4783e7cd95",
-          "isHook": false,
-          "skipped": false
-        },
-        {
-          "title": "Run scholarcy and upload pdf file and explore Highlights",
-          "fullTitle": "Run scholarcy and upload pdf file and explore Highlights",
-          "timedOut": null,
-          "duration": 64840,
-          "state": "failed",
-          "speed": null,
-          "pass": false,
-          "fail": true,
-          "pending": false,
-          "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"/Tools/Live/scholarcy.spec.js/Run scholarcy and upload pdf file and explore Highlights (failed).png\"\n      }\n    ]\n  ]\n}",
-          "code": "cy.visit('dashboard');\ncy.get(':nth-child(10) > .h-full > .relative > .absolute > div > .flex > span').click();\ncy.get('input[type=file]').attachFile('test.pdf', 'application/pdf').click({\n  force: true\n});\ncy.wait(20000);\ncy.scrollTo(0, 600);\ncy.get(\"#Highlights\").first().click({\n  force: true\n});\ncy.wait(2000);\ncy.get(\"#Highlights\").first().click({\n  force: true\n});\ncy.wait(2000);",
-          "err": {
-            "message": "AssertionError: Timed out retrying after 60000ms: Expected to find element: `:nth-child(10) > .h-full > .relative > .absolute > div > .flex > span`, but never found it.",
-            "estack": "AssertionError: Timed out retrying after 60000ms: Expected to find element: `:nth-child(10) > .h-full > .relative > .absolute > div > .flex > span`, but never found it.\n    at Context.eval (http://127.0.0.1:8000/__cypress/tests?p=cypress/integration/Tools/Live/scholarcy.spec.js:165:6)",
-            "diff": null
-          },
-          "uuid": "712f505e-1ddb-46d0-8b41-2bc534ecc9fc",
-          "parentUUID": "b5008000-fb25-4b21-91e4-8b4783e7cd95",
-          "isHook": false,
-          "skipped": false
-        },
-        {
-          "title": "Run scholarcy and upload doc file and explore Meta Data and check Author, Abstract",
-          "fullTitle": "Run scholarcy and upload doc file and explore Meta Data and check Author, Abstract",
-          "timedOut": null,
-          "duration": 65410,
-          "state": "failed",
-          "speed": null,
-          "pass": false,
-          "fail": true,
-          "pending": false,
-          "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"/Tools/Live/scholarcy.spec.js/Run scholarcy and upload doc file and explore Meta Data and check Author, Abstract (failed).png\"\n      }\n    ]\n  ]\n}",
-          "code": "cy.visit('dashboard');\ncy.get(':nth-child(10) > .h-full > .relative > .absolute > div > .flex > span').click();\ncy.get('input[type=file]').attachFile('test.doc', 'application/msword').click({\n  force: true\n});\ncy.wait(20000);\ncy.get(\"#Meta\").first().click({\n  force: true\n});\ncy.wait(2000);\ncy.get(\"#Meta\").first().click({\n  force: true\n});\ncy.wait(2000);",
-          "err": {
-            "message": "AssertionError: Timed out retrying after 60000ms: Expected to find element: `:nth-child(10) > .h-full > .relative > .absolute > div > .flex > span`, but never found it.",
-            "estack": "AssertionError: Timed out retrying after 60000ms: Expected to find element: `:nth-child(10) > .h-full > .relative > .absolute > div > .flex > span`, but never found it.\n    at Context.eval (http://127.0.0.1:8000/__cypress/tests?p=cypress/integration/Tools/Live/scholarcy.spec.js:182:6)",
-            "diff": null
-          },
-          "uuid": "d31e3c20-d4de-4b67-956c-99192e977e5c",
-          "parentUUID": "b5008000-fb25-4b21-91e4-8b4783e7cd95",
-          "isHook": false,
-          "skipped": false
-        },
-        {
-          "title": "Run scholarcy and upload doc file and explore Summary",
-          "fullTitle": "Run scholarcy and upload doc file and explore Summary",
-          "timedOut": null,
-          "duration": 64975,
-          "state": "failed",
-          "speed": null,
-          "pass": false,
-          "fail": true,
-          "pending": false,
-          "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"/Tools/Live/scholarcy.spec.js/Run scholarcy and upload doc file and explore Summary (failed).png\"\n      }\n    ]\n  ]\n}",
-          "code": "cy.visit('dashboard');\ncy.get(':nth-child(10) > .h-full > .relative > .absolute > div > .flex > span').click();\ncy.get('input[type=file]').attachFile('test.doc', 'application/msword').click({\n  force: true\n});\ncy.wait(20000);\ncy.scrollTo(0, 400);\ncy.get(\"#Summary\").first().click({\n  force: true\n});\ncy.wait(2000);\ncy.get(\"#Summary\").first().click({\n  force: true\n});\ncy.wait(2000);",
-          "err": {
-            "message": "AssertionError: Timed out retrying after 60000ms: Expected to find element: `:nth-child(10) > .h-full > .relative > .absolute > div > .flex > span`, but never found it.",
-            "estack": "AssertionError: Timed out retrying after 60000ms: Expected to find element: `:nth-child(10) > .h-full > .relative > .absolute > div > .flex > span`, but never found it.\n    at Context.eval (http://127.0.0.1:8000/__cypress/tests?p=cypress/integration/Tools/Live/scholarcy.spec.js:198:6)",
-            "diff": null
-          },
-          "uuid": "29107fe5-4594-4cd8-9254-34f2a679f78a",
-          "parentUUID": "b5008000-fb25-4b21-91e4-8b4783e7cd95",
-          "isHook": false,
-          "skipped": false
-        },
-        {
-          "title": "Run scholarcy and upload doc file and explore Highlights",
-          "fullTitle": "Run scholarcy and upload doc file and explore Highlights",
-          "timedOut": null,
-          "duration": 65340,
-          "state": "failed",
-          "speed": null,
-          "pass": false,
-          "fail": true,
-          "pending": false,
-          "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"/Tools/Live/scholarcy.spec.js/Run scholarcy and upload doc file and explore Highlights (failed).png\"\n      }\n    ]\n  ]\n}",
-          "code": "cy.visit('dashboard');\ncy.get(':nth-child(10) > .h-full > .relative > .absolute > div > .flex > span').click();\ncy.get('input[type=file]').attachFile('test.doc', 'application/msword').click({\n  force: true\n});\ncy.wait(20000);\ncy.scrollTo(0, 600);\ncy.get(\"#Highlights\").first().click({\n  force: true\n});\ncy.wait(2000);\ncy.get(\"#Highlights\").first().click({\n  force: true\n});\ncy.wait(2000);",
-          "err": {
-            "message": "AssertionError: Timed out retrying after 60000ms: Expected to find element: `:nth-child(10) > .h-full > .relative > .absolute > div > .flex > span`, but never found it.",
-            "estack": "AssertionError: Timed out retrying after 60000ms: Expected to find element: `:nth-child(10) > .h-full > .relative > .absolute > div > .flex > span`, but never found it.\n    at Context.eval (http://127.0.0.1:8000/__cypress/tests?p=cypress/integration/Tools/Live/scholarcy.spec.js:215:6)",
-            "diff": null
-          },
-          "uuid": "e297c8b7-bf4a-42f4-89ff-1fb4df485132",
-          "parentUUID": "b5008000-fb25-4b21-91e4-8b4783e7cd95",
+          "uuid": "868df6d0-5b13-48ea-b7f2-1c547a7a822a",
+          "parentUUID": "5e8ff0af-737f-4ee9-a736-e06de54ee3cd",
           "isHook": false,
           "skipped": false
         }
       ],
       "suites": [],
       "passes": [
-        "fa707da9-02de-4315-b48e-26775cf33d76"
+        "493a8ccf-64c0-4c65-93dc-3a5a2ccb62dc"
       ],
       "failures": [
-        "ab7cbdd9-6ced-40ed-bc49-2719712edf67",
-        "84062b18-e35b-4972-9040-fe411d40ece6",
-        "08815cc8-28b3-497b-8276-6279a313e65d",
-        "712f505e-1ddb-46d0-8b41-2bc534ecc9fc",
-        "d31e3c20-d4de-4b67-956c-99192e977e5c",
-        "29107fe5-4594-4cd8-9254-34f2a679f78a",
-        "e297c8b7-bf4a-42f4-89ff-1fb4df485132"
+        "868df6d0-5b13-48ea-b7f2-1c547a7a822a"
       ],
       "pending": [],
       "skipped": [],
-      "duration": 459789,
+      "duration": 68582,
       "root": true,
       "rootEmpty": false,
       "_timeout": 2000
@@ -225,7 +87,7 @@
     },
     "mochawesome": {
       "options": {
-        "quiet": true,
+        "quiet": false,
         "reportFilename": "mochawesome",
         "saveHtml": false,
         "saveJson": true,
@@ -242,9 +104,7 @@
         "reportPageTitle": "custom-title",
         "overwrite": false,
         "html": false,
-        "toConsole": true,
-        "json": true,
-        "quiet": true
+        "json": true
       },
       "version": "6.0.1"
     }
