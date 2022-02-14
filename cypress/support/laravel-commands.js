@@ -14,7 +14,7 @@ Cypress.Commands.add('login', (attributes = {}) => {
                 method: 'POST',
                 url: '/__cypress__/login',
                 body: { attributes, _token: token },
-                log: false
+                log: false,
             });
         })
         .then(({ body }) => {
@@ -42,7 +42,7 @@ Cypress.Commands.add('logout', () => {
                 method: 'POST',
                 url: '/__cypress__/logout',
                 body: { _token: token },
-                log: false
+                log: false,
             });
         })
         .then(() => {
@@ -61,12 +61,8 @@ Cypress.Commands.add('csrfToken', () => {
             method: 'GET',
             url: '/__cypress__/csrf_token',
             log: false,
-            failOnStatusCode: false
         })
-        .then(response => {
-            expect(response.status).to.be.gt(299) // status returned is 404
-        })
-        // .its('body', { log: false });
+        .its('body', { log: false });
 });
 
 /**
@@ -81,7 +77,7 @@ Cypress.Commands.add('refreshRoutes', () => {
                 method: 'POST',
                 url: '/__cypress__/routes',
                 body: { _token: token },
-                log: false
+                log: false,
             })
             .its('body', { log: false })
             .then((routes) => {
@@ -148,16 +144,14 @@ Cypress.Commands.add('create', (model, times = 1, attributes = {}, relations = [
                 method: 'POST',
                 url: '/__cypress__/factory',
                 body: { attributes, model, times, relations, _token: token },
-                log: false
+                log: false,
             });
         })
         .then((response) => {
             Cypress.log({
                 name: 'create',
                 message: model + (times ? `(${times} times)` : ''),
-                consoleProps: () => ({
-                    [model]: response.body
-                }),
+                consoleProps: () => ({ [model]: response.body }),
             });
         })
         .its('body', { log: false });
@@ -214,7 +208,7 @@ Cypress.Commands.add('artisan', (command, parameters = {}, options = {}) => {
             method: 'POST',
             url: '/__cypress__/artisan',
             body: { command: command, parameters: parameters, _token: token },
-            log: false
+            log: false,
         });
     });
 });
@@ -235,7 +229,7 @@ Cypress.Commands.add('php', (command) => {
                 method: 'POST',
                 url: '/__cypress__/run-php',
                 body: { command: command, _token: token },
-                log: false
+                log: false,
             });
         })
         .then((response) => {

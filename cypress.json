@@ -4,6 +4,16 @@
     "screenshotsFolder": "cypress/screenshots",
     "screenshotOnRunFailure": true,
     "projectId": "4s6utv",
+    "reporter": "cypress-mochawesome-reporter",
+    "reporterOptions": {
+        "reportDir": "cypress/reports",
+        "charts": true,
+        "reportPageTitle": "custom-title",
+        "overwrite": true,
+        "html": true,
+        "toConsole": true,
+        "json": false
+    },
     "responseTimeout": 60000,
     "defaultCommandTimeout": 60000,
     "env": {
