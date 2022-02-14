@@ -25,6 +25,7 @@ jobs:
         with: 
          path: 'cypress/reports/output.json'
          prop_path: 'stats.failures'
-         if: ${{steps.format_script.outputs.prop}} == 0
-         allow_failure: true
+         failed_when:  ${{steps.format_script.outputs.prop}} > 0
+#          if: ${{steps.format_script.outputs.prop}} == 0
+#          allow_failure: true
 
