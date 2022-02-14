@@ -25,8 +25,10 @@ jobs:
         with: 
          path: 'cypress/reports/output.json'
          prop_path: 'stats.failures'
-      - name: check if httpd is running 
-        if:  ${{steps.format_script.outputs.prop}} == "0"
-        run: echo failures exists!
-            
+      - name: Failures exists
+        if: steps.format_script.outputs.prop == '0'
+        # Only runs if all of the files exists
+        run: echo All files exists!
+#       - name: get nested property
+#       - if: '${{steps.format_script.outputs.prop}} == 0
 
