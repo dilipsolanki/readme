@@ -24,7 +24,7 @@ jobs:
         uses: notiz-dev/github-action-json-property@release
         with: 
          path: 'cypress/reports/output.json'
-         prop_path: 'scripts.stats'
+         prop_path: 'stats.tests'
 #          prop1_path: 'scripts.passes'
         if: ${{steps.format_script.outputs.prop}} == ${{steps.format_script.outputs.prop}}
       - run: echo mathed
