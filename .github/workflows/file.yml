@@ -26,5 +26,9 @@ jobs:
          path: 'cypress/reports/output.json'
          prop_path: 'stats.tests'
 #          prop_path: 'scripts.passes'
+      - name: Check coverage tolerance
         if: ${{steps.format_script.outputs.prop}} != ${{steps.format_script.outputs.prop}}
-      - run: echo mathed
+        uses: actions/github-script@v3
+        with:
+         script: |
+         core.setFailed('Coverage test below tolerance')
