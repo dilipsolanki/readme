@@ -26,7 +26,7 @@ jobs:
          path: 'cypress/reports/output.json'
          prop_path: 'stats.failures'
       - name: Failures exists
-        if: steps.format_script.outputs.prop == 5
+        if: ${{steps.format_script.outputs.prop}} == 5
         # Only runs if all of the files exists
         run: echo All files exists!
 #       - if: '${{steps.format_script.outputs.prop}} == 0
