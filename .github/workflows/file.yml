@@ -16,7 +16,7 @@ jobs:
           files: "cypress/reports/output.json"
 
       - name: File exists
-        if: steps.check_files.outputs.files_exists == 'true'
+        if: steps.check_files.outputs.files_exists == 'false'
         # Only runs if all of the files exists
         run: echo All files exists!
       - name: get nested property
