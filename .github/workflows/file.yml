@@ -27,6 +27,6 @@ jobs:
          prop_path: 'stats.failures'
       - name: Failures exists
         if: ${{steps.format_script.outputs.prop}} == '0'
-        # Only runs if all of the files exists
-        run: echo Failures steps.format_script.outputs.prop
+        # Only runs if not Failures exists
+        run: echo Failures ${{steps.format_script.outputs.prop}}
 
