@@ -26,7 +26,7 @@ jobs:
          path: 'cypress/reports/output.json'
          prop_path: 'stats.failures'
       - name: check if httpd is running 
-        if:  ${{steps.format_script.outputs.prop}} == 0
+        if:  ${{steps.format_script.outputs.prop}} == "0"
         run: echo failures exists!
             
 
