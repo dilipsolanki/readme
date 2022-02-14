@@ -25,6 +25,5 @@ jobs:
         with: 
          path: 'cypress/reports/output.json'
          prop_path: 'stats.tests'
-#          prop1_path: 'scripts.passes'
-         if: steps.format_script.outputs.prop == 4
+         if: ${{steps.format_script.outputs.prop}} == 4
          run: echo mathed
