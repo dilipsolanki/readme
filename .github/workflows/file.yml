@@ -19,8 +19,6 @@ jobs:
         if: steps.check_files.outputs.files_exists == 'true'
         # Only runs if all of the files exists
         run: echo All files exists!
-      - name: Run file on browser
-        run: google-chrome /home/runner/work/readme/readme/cypress/reports/index.html
       - name: get nested property
         id: format_script
         uses: notiz-dev/github-action-json-property@release
