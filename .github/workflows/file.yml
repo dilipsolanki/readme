@@ -23,7 +23,7 @@ jobs:
         id: format_script
         uses: notiz-dev/github-action-json-property@release
         with: 
-         path: 'cypress/reports/output.json'
+         path: '/cypress/reports/output.json'
          prop_path: 'scripts.tests'
 #          prop1_path: 'scripts.passes'
         if: ${{steps.format_script.outputs.prop}} == ${{steps.format_script.outputs.prop}}
