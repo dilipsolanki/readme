@@ -13,7 +13,7 @@ jobs:
         id: check_files
         uses: andstor/file-existence-action@v1
         with:
-          files: "cypress/reports/index.html"
+          files: "cypress/reports/output.json"
 
       - name: File exists
         if: steps.check_files.outputs.files_exists == 'true'
@@ -23,6 +23,8 @@ jobs:
         id: format_script
         uses: notiz-dev/github-action-json-property@release
         with: 
-         path: 'package.json'
-         prop_path: 'scripts.production'
-      - run: echo ${{steps.format_script.outputs.prop}} 
+         path: 'cypress/reports/output.json'
+         prop_path: 'scripts.tests'
+         prop1_path: 'scripts.passes'
+        if: ${{steps.format_script.outputs.prop}} == ${{steps.format_script.outputs.prop1}}
+      - run: echo mathed
