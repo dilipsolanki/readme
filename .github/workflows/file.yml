@@ -28,7 +28,4 @@ jobs:
         run: |
           if ${{steps.format_script.outputs.prop}} == "4" then
              run: echo ${{steps.format_script.outputs.prop}}
-          else
-             run: echo failed
-          fi        
 
