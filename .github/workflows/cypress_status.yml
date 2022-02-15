@@ -28,7 +28,7 @@ jobs:
          prop_path: 'stats.failures'
       - name: Check cypress status
         run: |
-          if [ ${{steps.format_script.outputs.prop}} == '0' ]; then
+          if [ ${{steps.format_script.outputs.prop}} == '1' ]; then
           echo "All tests passed"
           else
           exit 1
