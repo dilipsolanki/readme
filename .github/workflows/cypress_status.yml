@@ -16,7 +16,7 @@ jobs:
       - name: Check cypres result's file
         run: |
           if [ ${{steps.check_files.outputs.files_exists}} == 'true' ]; then
-          echo "echo All files exists!"
+          date: "Last compiled on `r format(Sys.time(), '%d %B, %Y')`"
           else
           exit 1
           fi
