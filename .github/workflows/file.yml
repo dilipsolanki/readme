@@ -25,12 +25,14 @@ jobs:
         with: 
          path: 'cypress/reports/output.json'
          prop_path: 'stats.failures'
-      - name: Failures exists
-          if [ ${{steps.format_script.outputs.prop}} == 0 ]
-          then
-          statement1
+      - name: Check environment
+#         id: check
+        run: |
+          if [ ${{steps.format_script.outputs.prop}} != '0' ]; then
+          echo "IS NOT main branch"
+          echo "environment a"
           else
-          statement2
+          echo "environment b"
           fi
 #         if: eq(${{steps.format_script.outputs.prop}},'0')
 #         # Only runs if not Failures exists
