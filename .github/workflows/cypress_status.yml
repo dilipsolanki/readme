@@ -18,6 +18,7 @@ jobs:
           if [ ${{steps.check_files.outputs.files_exists}} == 'true' ]; then
           echo "File exists!"
           else
+          echo "File not exists!"
           exit 1
           fi
       - name: Get date from output.json
@@ -26,12 +27,12 @@ jobs:
         with: 
          path: 'cypress/reports/output.json'
          prop_path: 'stats.end'  
-      - name: Check cypress date  
+      - name: Check cypress report date  
         run: |
           if [ "$(date -d "${{steps.date.outputs.prop}}" +'%Y-%m-%d')" == "$(date +'%Y-%m-%d')" ]; then
-          echo "$(date +'%Y-%m-%d')"
-          echo "$(date -d "${{steps.date.outputs.prop}}" +'%Y-%m-%d')"
+          echo "Report date: $(date -d "${{steps.date.outputs.prop}}" +'%Y-%m-%d')"
           else
+          echo "Cypress report and PR date not matched!"
           exit 1
           fi
       - name: Get status from output.json
