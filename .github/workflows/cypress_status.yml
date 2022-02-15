@@ -28,12 +28,12 @@ jobs:
          prop_path: 'stats.end'  
       - name: Check cypress date  
         run: |
-          if [ ${{steps.check_files.outputs.date}} == '2022-02-14T10:39:56.665Z"' ]; then
+          if [ ${{steps.date.outputs.prop}} == '2022-02-14T10:39:56.665Z' ]; then
           echo "echo 'r format(Sys.time(), '%d %B, %Y')'"
           else
           exit 1
           fi
-      - name: Get property from output.json
+      - name: Get status from output.json
         id: format_script
         uses: notiz-dev/github-action-json-property@release
         with: 
@@ -46,4 +46,3 @@ jobs:
           else
           exit 1
           fi
-
