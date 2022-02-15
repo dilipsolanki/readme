@@ -31,7 +31,7 @@ jobs:
           if [ ${{steps.date.outputs.prop}} > $(date +'%Y-%m-%dT%H:%M:%S') ]; then
           #echo "$(date +'%Y-%m-%dT%H:%M:%S')"
           echo "$(date +'%Y-%m-%d')"
-          echo "$(steps.date.outputs.prop +'%Y-%m-%d')"
+          echo "$({{steps.date.outputs.prop}} +'%Y-%m-%d')"
           else
           exit 1
           fi
