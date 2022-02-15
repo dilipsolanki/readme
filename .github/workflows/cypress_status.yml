@@ -28,9 +28,9 @@ jobs:
          prop_path: 'stats.end'  
       - name: Check cypress date  
         run: |
-          if [ $(${{steps.date.outputs.prop}} + +'%Y-%m-%dT%H:%M:%S') > $(date +'%Y-%m-%dT%H:%M:%S') ]; then
+          if [ ${{steps.date.outputs.prop}} > $(date +'%Y-%m-%dT%H:%M:%S') ]; then
           #echo "$(date +'%Y-%m-%dT%H:%M:%S')"
-          echo "$(date +'%Y-%m-%dT%H:%i:%s%Q')"
+          echo "$(date +'%a, %d %b %Y %H:%M:%S %z')"
           else
           exit 1
           fi
