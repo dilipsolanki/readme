@@ -28,7 +28,7 @@ jobs:
       - name: Check environment
 #         id: check
         run: |
-          if [ ${{steps.format_script.outputs.prop}} != '0' ]; then
+          if [ ${{steps.format_script.outputs.prop}} != '1' ]; then
           echo "IS NOT main branch"
           echo "environment a"
           else
