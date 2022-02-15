@@ -29,7 +29,7 @@ jobs:
       - name: Check cypress date  
         run: |
           if [ ${{steps.date.outputs.prop}} == '2022-02-14T10:39:56.665Z' ]; then
-          echo date("Y-m-d H:i:s")
+          echo 'Sys.Date()'
           else
           exit 1
           fi
