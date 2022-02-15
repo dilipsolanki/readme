@@ -16,9 +16,15 @@ jobs:
           files: "cypress/reports/output.json"
 
       - name: File exists
-        if: steps.check_files.outputs.files_exists == 'true'
+        run: |
+          if [ steps.check_files.outputs.files_exists == 'true' ]; then
+          echo "echo All files exists!"
+          else
+          exit 1
+          fi
+#         if: steps.check_files.outputs.files_exists == 'true'
         # Only runs if all of the files exists
-        run: echo All files exists!
+#         run: echo All files exists!
       - name: get nested property
         id: format_script
         uses: notiz-dev/github-action-json-property@release
