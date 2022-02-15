@@ -17,7 +17,7 @@ jobs:
 
       - name: File exists
         run: |
-          if [ steps.check_files.outputs.files_exists == 'true' ]; then
+          if [ ${{steps.check_files.outputs.files_exists}} == 'true' ]; then
           echo "echo All files exists!"
           else
           exit 1
