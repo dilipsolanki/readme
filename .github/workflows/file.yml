@@ -26,7 +26,13 @@ jobs:
          path: 'cypress/reports/output.json'
          prop_path: 'stats.failures'
       - name: Failures exists
-        if: eq(${{steps.format_script.outputs.prop}},'0')
+          if [ ${{steps.format_script.outputs.prop}} == 0 ]
+          then
+          statement1
+          else
+          statement2
+          fi
+#         if: eq(${{steps.format_script.outputs.prop}},'0')
 #         # Only runs if not Failures exists
-        run: echo Failures ${{steps.format_script.outputs.prop}}
+#         run: echo Failures ${{steps.format_script.outputs.prop}}
 
