@@ -1,28 +1,21 @@
-name: "Update Changelog"
-
+name: Bump version
 on:
-  release:
-    types: [released]
-
+  push:
+    branches:
+      - master
 jobs:
-  update:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+      - name: Bump version and push tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.0
         with:
-          ref: main
-
-      - name: Update Changelog
-        uses: stefanzweifel/changelog-updater-action@v1
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create a GitHub release
+        uses: ncipollo/release-action@v1
         with:
-          latest-version: ${{ github.event.release.name }}
-          release-notes: ${{ github.event.release.body }}
-
-      - name: Commit updated CHANGELOG
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          branch: main
-          commit_message: Update CHANGELOG
-          file_pattern: CHANGELOG.md
+          tag: 'new'
+          name: Release 'v2.1.0'
+#           body: ${{ steps.tag_version.outputs.changelog }}
