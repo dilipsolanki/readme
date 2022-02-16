@@ -43,7 +43,7 @@ jobs:
          prop_path: 'stats.failures'
       - name: Check cypress status
         run: |
-          if [ '${{steps.format_script.outputs.prop}}' == 'no value found' ]; then
+          if [ '${{steps.format_script.outputs.prop}}' == '' ]; then
           echo "All tests passed"
           else
           echo "Tests failed!"
