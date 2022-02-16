@@ -26,7 +26,7 @@ jobs:
         uses: notiz-dev/github-action-json-property@release
         with: 
          path: 'cypress/reports/output.json'
-         prop_path: 'stats.end'  
+         prop_path: Value(stats.tests)
       - name: Check cypress report date  
         run: |
           if [ "$(date -d "${{steps.date.outputs.prop}}" +'%Y-%m-%d')" == "$(date +'%Y-%m-%d')" ]; then
