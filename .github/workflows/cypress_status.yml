@@ -40,7 +40,7 @@ jobs:
         uses: notiz-dev/github-action-json-property@release
         with: 
          path: 'cypress/reports/output.json'
-         prop_path: 'stats.failures'
+         prop_path: 'stats.tests'
       - name: Get status from output.json
         id: passes
         uses: notiz-dev/github-action-json-property@release
@@ -48,7 +48,6 @@ jobs:
          path: 'cypress/reports/output.json'
          prop_path: 'stats.passes'
       - name: Check cypress status
-         echo "${{steps.passes.outputs.prop}}"
         run: |
           if [ '${{steps.format_script.outputs.prop}}' == '${{steps.passes.outputs.prop}}' ]; then
           echo "All tests passed"
