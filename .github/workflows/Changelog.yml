@@ -1,6 +1,6 @@
 name: Bump version
 on:
-  push:
+  pull_request:
     branches:
       - master
 jobs:
@@ -8,21 +8,41 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: 'Action Get Latest Tag'
-        uses: 'actions-ecosystem/action-get-latest-tag@v1.4.1'
-        id: 'get-latest-tag'
+      - uses: actions-ecosystem/action-release-label@v1
+        id: release-label
+        if: ${{ github.event.pull_request.merged == true }}
+
+      - uses: actions-ecosystem/action-get-latest-tag@v1
+        id: get-latest-tag
+        if: ${{ steps.release-label.outputs.level != null }}
+
+      - uses: actions-ecosystem/action-bump-semver@v1
+        id: bump-semver
+        if: ${{ steps.release-label.outputs.level != null }}
         with:
-          semver_only: true
-      - name: 'Determine default bump'
-        id: 'bump'
-        run: |
-          LATEST_TAG=${{ steps.get-latest-tag.outputs.tag }}
-          echo ${{ steps.get-latest-tag.outputs.tag }}
-          if [ "$LATEST_TAG" = "v0.0.0" ]; then
-              echo "::set-output name=type::major"
-          else
-              echo "::set-output name=type::patch"
-          fi
+          current_version: ${{ steps.get-latest-tag.outputs.tag }}
+          level: ${{ steps.release-label.outputs.level }}
+
+      - uses: actions-ecosystem/action-push-tag@v1
+        if: ${{ steps.release-label.outputs.level != null }}
+        with:
+          tag: ${{ steps.bump-semver.outputs.new_version }}
+          message: '${{ steps.bump-semver.outputs.new_version }}: PR #${{ github.event.pull_request.number }} ${{ github.event.pull_request.title }}'
+#       - name: 'Action Get Latest Tag'
+#         uses: 'actions-ecosystem/action-get-latest-tag@v1.4.1'
+#         id: 'get-latest-tag'
+#         with:
+#           semver_only: true
+#       - name: 'Determine default bump'
+#         id: 'bump'
+#         run: |
+#           LATEST_TAG=${{ steps.get-latest-tag.outputs.tag }}
+#           echo ${{ steps.get-latest-tag.outputs.tag }}
+#           if [ "$LATEST_TAG" = "v0.0.0" ]; then
+#               echo "::set-output name=type::major"
+#           else
+#               echo "::set-output name=type::patch"
+#           fi
       - name: Bump version and push tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.0
