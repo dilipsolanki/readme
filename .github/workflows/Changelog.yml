@@ -7,9 +7,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-      - run:  npm install --save-dev semantic-release && npm install && npx semantic-release
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install dependencies
+        run: npm install
+      - name: Install semantic-release extra plugins
+        run: npm install --save-dev @semantic-release/changelog @semantic-release/git      
+#       - name: Lint
+#         run: npm run lint-fix
+#       - name: Test
+#         run: npm run test:unit --if-present
+#       - name: Build
+#         run: npm run build      
+      - name: Release
+        run: npx semantic-release
 #       - uses: actions/checkout@v2
 #       - name: Bump version and push tag
 #         id: tag_version
