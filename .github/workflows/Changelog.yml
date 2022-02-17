@@ -16,7 +16,7 @@ jobs:
       - name: 'Determine default bump'
         id: 'bump'
         run: |
-          LATEST_TAG=${{ steps.get-latest-tag.outputs.tag }}
+          LATEST_TAG=${{ steps.get-latest-tag.outputs }}
           echo ${{ steps.get-latest-tag.outputs.tag }}
           if [ "$LATEST_TAG" = "v0.0.0" ]; then
               echo "::set-output name=type::major"
