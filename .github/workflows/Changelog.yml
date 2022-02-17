@@ -9,15 +9,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: 'Action Get Latest Tag'
-        uses: 'actions-ecosystem/action-get-latest-tag@v1.4.1'
+#         uses: 'actions-ecosystem/action-get-latest-tag@v1.4.1'
+        uses: actions-ecosystem/action-bump-semver@v1
         id: 'get-latest-tag'
         with:
           semver_only: true
       - name: 'Determine default bump'
         id: 'bump'
         run: |
-          LATEST_TAG=${{ steps.get-latest-tag.outputs.tag }}
-          echo ${{ steps.get-latest-tag.outputs.level }}
+          LATEST_TAG=${{ steps.get-latest-tag.outputs.new_version }}
+          echo ${{ steps.get-latest-tag.outputs.new_version }}
           if [ "$LATEST_TAG" = "v0.0.0" ]; then
               echo "::set-output name=type::major"
           else
