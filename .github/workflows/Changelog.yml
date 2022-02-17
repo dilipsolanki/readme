@@ -8,23 +8,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: 'Action Get Latest Tag'
-        uses: 'actions-ecosystem/action-get-latest-tag@v1'
-#         uses: actions-ecosystem/action-bump-semver@v1
-#         uses: actions-ecosystem/action-release-label@v1
-        id: 'get-latest-tag'
+      - name: Create tag artifact
+        uses: actions/upload-artifact@v2
         with:
-          semver_only: true
-      - name: 'Determine default bump'
-        id: 'bump'
-        run: |
-          LATEST_TAG=${{ steps.get-latest-tag.outputs.new_version }}
-          echo ${{ steps.get-latest-tag.outputs.level }}
-          if [ "$LATEST_TAG" = "v0.0.0" ]; then
-              echo "::set-output name=type::major"
-          else
-              echo "::set-output name=type::patch"
-          fi
+          name: ${{github.ref_name}}
+          path: Release
+#       - name: 'Action Get Latest Tag'
+#         uses: 'actions-ecosystem/action-get-latest-tag@v1'
+#         id: 'get-latest-tag'
+#         with:
+#           semver_only: true
+#       - name: 'Determine default bump'
+#         id: 'bump'
+#         run: |
+#           LATEST_TAG=${{ steps.get-latest-tag.outputs.new_version }}
+#           echo ${{ steps.get-latest-tag.outputs.level }}
+#           if [ "$LATEST_TAG" = "v0.0.0" ]; then
+#               echo "::set-output name=type::major"
+#           else
+#               echo "::set-output name=type::patch"
+#           fi
       - name: Bump version and push tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.0
