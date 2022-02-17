@@ -16,6 +16,6 @@ jobs:
       - name: Create a GitHub release with tag
         uses: ncipollo/release-action@v1
         with:
-          tag:  ${{ steps.tag_version.outputs.new_tag }}
+          tag:  ${{ steps.tag_version.outputs.default_prerelease_bump }}
           name: Release ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
