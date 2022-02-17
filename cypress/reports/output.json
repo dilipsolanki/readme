@@ -1,0 +1,189 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 5,
+    "passes": 4,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-02-17T04:47:17.238Z",
+    "end": "2022-02-17T04:49:12.851Z",
+    "duration": 102994,
+    "testsRegistered": 5,
+    "passPercent": 80,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "675524cf-678c-4d6c-8ff6-4c615020e9c0",
+      "title": "",
+      "fullFile": "cypress/integration/Tools/Live/scholarcy.spec.js",
+      "file": "cypress/integration/Tools/Live/scholarcy.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "Welcome at Global Cactus Landing Page",
+          "fullTitle": "Welcome at Global Cactus Landing Page",
+          "timedOut": null,
+          "duration": 4004,
+          "state": "passed",
+          "speed": "fast",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "cy.wait(200);",
+          "err": {},
+          "uuid": "33accd61-f4ab-4c2f-bac7-962cda8e3818",
+          "parentUUID": "675524cf-678c-4d6c-8ff6-4c615020e9c0",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Select tool of Scholarcy",
+          "fullTitle": "Select tool of Scholarcy",
+          "timedOut": null,
+          "duration": 63732,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"/Tools/Live/scholarcy.spec.js/Select tool of Scholarcy (failed).png\"\n      }\n    ]\n  ]\n}",
+          "code": "cy.visit('dashboard');\ncy.get(':nth-child(10) > .h-full > .relative > .absolute > div > .flex > span').click().should('have.length', 1);\ncy.wait(500);",
+          "err": {
+            "message": "AssertionError: Timed out retrying after 60000ms: Expected to find element: `:nth-child(10) > .h-full > .relative > .absolute > div > .flex > span`, but never found it.",
+            "estack": "AssertionError: Timed out retrying after 60000ms: Expected to find element: `:nth-child(10) > .h-full > .relative > .absolute > div > .flex > span`, but never found it.\n    at Context.eval (http://127.0.0.1:8000/__cypress/tests?p=cypress/integration/Tools/Live/scholarcy.spec.js:127:6)",
+            "diff": null
+          },
+          "uuid": "af328190-b0fd-4987-95e3-dab6595dc585",
+          "parentUUID": "675524cf-678c-4d6c-8ff6-4c615020e9c0",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [
+        "33accd61-f4ab-4c2f-bac7-962cda8e3818"
+      ],
+      "failures": [
+        "af328190-b0fd-4987-95e3-dab6595dc585"
+      ],
+      "pending": [],
+      "skipped": [],
+      "duration": 67736,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "215effff-bd94-44ae-9561-4fd18ba3656f",
+      "title": "",
+      "fullFile": "cypress/integration/Tools/Live/image-checker.spec.js",
+      "file": "cypress/integration/Tools/Live/image-checker.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "Welcome at Global Cactus Landing Page",
+          "fullTitle": "Welcome at Global Cactus Landing Page",
+          "timedOut": null,
+          "duration": 5200,
+          "state": "passed",
+          "speed": "medium",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "cy.wait(200);",
+          "err": {},
+          "uuid": "3469856e-be5f-4070-aef2-fb73a2e99211",
+          "parentUUID": "215effff-bd94-44ae-9561-4fd18ba3656f",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Select tool of image checker",
+          "fullTitle": "Select tool of image checker",
+          "timedOut": null,
+          "duration": 5262,
+          "state": "passed",
+          "speed": "medium",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "cy.visit('dashboard');\ncy.get(':nth-child(5) > .h-full > .relative > .absolute > div > .flex > span').click().should('have.length', 1);\ncy.wait(500);",
+          "err": {},
+          "uuid": "9bb403e2-ac11-4339-bfa1-df841a5b0ae0",
+          "parentUUID": "215effff-bd94-44ae-9561-4fd18ba3656f",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Run image checker with png image",
+          "fullTitle": "Run image checker with png image",
+          "timedOut": null,
+          "duration": 24796,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "cy.visit('dashboard');\ncy.get(':nth-child(5) > .h-full > .relative > .absolute > div > .flex > span').click();\ncy.get('input[type=file]').attachFile('test.png', 'image/png').click({\n  force: true\n});\ncy.wait(20000);",
+          "err": {},
+          "uuid": "8cd78418-b051-4a32-a1b9-c080cbcc4062",
+          "parentUUID": "215effff-bd94-44ae-9561-4fd18ba3656f",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [
+        "3469856e-be5f-4070-aef2-fb73a2e99211",
+        "9bb403e2-ac11-4339-bfa1-df841a5b0ae0",
+        "8cd78418-b051-4a32-a1b9-c080cbcc4062"
+      ],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 35258,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "charts": true,
+        "reportPageTitle": "custom-title",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.0.1"
+    }
+  }
+}
