@@ -1,6 +1,6 @@
 name: Bump version
 on:
-  pull_request:
+  push:
     branches:
       - master
 jobs:
@@ -16,7 +16,6 @@ jobs:
       env:
        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
        WITH_V: true
-       prerelease: false
     - name: Create a GitHub release
       uses: ncipollo/release-action@v1
       with:
