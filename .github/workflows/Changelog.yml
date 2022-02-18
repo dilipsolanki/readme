@@ -18,6 +18,9 @@ jobs:
       env:
        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
        WITH_V: true
+    - uses: MeilCli/bump-release-action@v1
+      with:
+       pre_release: ${{ github.event.inputs.pre_release }}
     - name: Create a GitHub release
       uses: ncipollo/release-action@v1
       with:
