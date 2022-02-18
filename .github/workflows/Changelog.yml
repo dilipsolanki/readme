@@ -7,37 +7,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-#       - name: 'Action Get Latest Tag'
-#         uses: 'actions-ecosystem/action-get-latest-tag@v1'
-#         id: 'get-latest-tag'
-#         with:
-#           semver_only: true
-#       - name: 'Determine default bump'
-#         id: 'bump'
-#         run: |
-#           LATEST_TAG=${{ steps.get-latest-tag.outputs.new_version }}
-#           echo ${{ steps.get-latest-tag.outputs.level }}
-#           if [ "$LATEST_TAG" = "v0.0.0" ]; then
-#               echo "::set-output name=type::major"
-#           else
-#               echo "::set-output name=type::patch"
-#           fi
-      - name: Bump version and push tag
-        id: tag_version
-#         uses: mathieudutour/github-tag-action@v6.0
-        uses: anothrNick/github-tag-action@1.36.0
-        env:
-         GITHUB_TOKEN: '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'
-         WITH_V: true
-#         with:
-#           github_token: ${{ secrets.GITHUB_TOKEN }} 
-#           release_branches: 'master'
-#           default_bump: 'major' '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'
-#       - name: Create a GitHub release
-#         uses: ncipollo/release-action@v1
-#         with:
-#           My: ${{ steps.tag_version.outputs.release_type }} 
-#           tag: ${{ steps.tag_version.outputs.new_tag }}
-#           name: Release ${{ steps.tag_version.outputs.new_tag }}
-#           body: ${{ steps.tag_version.outputs.changelog }}
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: '0'
+    - name: Bump version and push tag
+      uses: anothrNick/github-tag-action@1.36.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        WITH_V: true
