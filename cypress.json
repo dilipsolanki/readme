@@ -8,7 +8,7 @@
     "reporterOptions": {
         "reportDir": "cypress/reports",
         "charts": true,
-        "reportPageTitle": "custom-title",
+        "reportPageTitle": "Title",
         "overwrite": false,
         "html": false,
         "json": true
