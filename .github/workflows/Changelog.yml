@@ -1,8 +1,9 @@
 name: "Update Changelog"
 
 on:
-  release:
-    types: [released]
+   pull_request:
+    branches:
+      - master
 
 jobs:
   update:
