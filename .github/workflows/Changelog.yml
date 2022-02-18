@@ -16,7 +16,11 @@ jobs:
       env:
        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
        WITH_V: true
-       pre_release: false
+    - uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: ${{ steps.tag_version.outputs.new_tag }}
+          prerelease: false
     - name: Create a GitHub release
       uses: ncipollo/release-action@v1
       with:
