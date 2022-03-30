@@ -20,4 +20,3 @@ jobs:
         npm install github-release-notes
         export GREN_GITHUB_TOKEN=$
         npm run overrideChangelog
-        gren changelog --override
