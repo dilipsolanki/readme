@@ -1,13 +1,13 @@
 name: "update changelog"
-# on:
-#   schedule:
-#     # At every 5th minute
-#     - cron: '*/5 * * * *'
 on:
-  push:
-    # branches to consider in the event; optional, defaults to all
-    branches:
-      - master
+  schedule:
+#     # At everyon:
+#   push:
+#     # branches to consider in the event; optional, defaults to all
+#     branches:
+#       - master 5th minute
+    - cron: '*/15 * * * *'
+# 
 jobs:
   publish-drafts:
     runs-on: ubuntu-latest
