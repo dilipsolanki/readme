@@ -1,23 +1,29 @@
 name: "update changelog"
 on:
   schedule:
-    # At every 2th minute
+    # At every 5th minute
     - cron: '*/5 * * * *'
-
 jobs:
-  update_release_draft:
+  release:
+    name: Check and Release New Version
     runs-on: ubuntu-latest
     steps:
-      # (Optional) GitHub Enterprise requires GHE_HOST variable set
-      #- name: Set GHE_HOST
-      #  run: |
-      #    echo "GHE_HOST=${GITHUB_SERVER_URL##https:\/\/}" >> $GITHUB_ENV
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
 
-      # Drafts your next Release notes as Pull Requests are merged into "master"
-      - uses: release-drafter/release-drafter@v5
-        # (Optional) specify config name to use, relative to .github/. Default: release-drafter.yml
-        # with:
-        #   config-name: my-config.yml
-        #   disable-autolabeler: true
+      # Parse the release version from git tag
+      - name: Get release version from tag
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+          # Validate and publish
+      - name: Publish / Deploy
+        run: echo 'publish your lib or deploy your app here'
+
+      - name: Publish Release Notes
+        uses: release-drafter/release-drafter@v5
+        with:
+          publish: true
+          tag: ${{ github.event.release.tag_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
