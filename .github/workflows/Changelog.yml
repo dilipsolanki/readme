@@ -9,15 +9,28 @@ on:
     branches:
       - master
 jobs:
-  release:
-    name: Release
+  changelog:
     runs-on: ubuntu-latest
     steps:
-      - name: Create a release draft for a version tag
-        id: create-release-draft
-        uses: ecampidoglio/auto-release-draft@v1
+      - name: 🔍 GH_TOKEN
+        if: env.GH_TOKEN == ''
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: echo "GH_TOKEN=${GITHUB_TOKEN}" >> $GITHUB_ENV
+
+      - name: 🤘 checkout
+        uses: actions/checkout@v2
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Print the URL of the release draft
-        if: steps.create-release-draft.outputs.release-url != ''
-        run: echo ${{ steps.create-release-draft.outputs.release-url }}
+          fetch-depth: 0
+          ref: main
+          token: ${{ env.GH_TOKEN }}
+
+      - name: ⚙ ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0.3
+
+      - name: ⚙ changelog
+        run: |
+          gem install github_changelog_generator 
+          github_changelog_generator --user ${GITHUB_REPOSITORY%/*} --project ${GITHUB_REPOSITORY##*/} --token ${{ secrets.GITHUB_TOKEN }} --o changelog.md --config-file .github/.github_changelog_generator
