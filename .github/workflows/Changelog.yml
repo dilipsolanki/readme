@@ -16,18 +16,6 @@ jobs:
         uses: actions/setup-node@v3
       - name: npm install
         run: npm install --frozen-lockfile
-      - name: Deploy to Heroku
-        env:
-          HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
-          HEROKU_APP_NAME: release-drafter
-        run: |
-          git fetch origin master
-          git push https://heroku:$HEROKU_API_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git origin/master:master --force
-      - name: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_TOKEN }}
-        run: npm publish --access public
-
       - name: version
         id: version
         run: |
