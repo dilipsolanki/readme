@@ -2,7 +2,7 @@ name: "update changelog"
 on:
   schedule:
     # At every 2th minute
-    - cron: '*/2 * * * *'
+    - cron: '*/5 * * * *'
 
 jobs:
   update-changelog:
