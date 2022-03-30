@@ -18,7 +18,7 @@ jobs:
     - name: Update changelog
       run: |
         npm install github-release-notes
-        export GREN_GITHUB_TOKEN=${{ secrets.GREN_GITHUB_TOKEN }}
+        export GREN_GITHUB_TOKEN='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'
         npm run overrideChangelog
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3
