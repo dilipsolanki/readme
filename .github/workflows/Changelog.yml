@@ -4,7 +4,7 @@ name: Auto-publish releases daily
 on:
   schedule:
     # At every 5th minute
-    - cron: '*/5 * * * *'
+    - cron: '*/1 * * * *'
 
 jobs:
   update-changelog:
@@ -20,8 +20,6 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3
       with:
-        commit-message: update changelog
         title: Update Changelog
         body: Update changelog to reflect release changes
         branch: master
-        base: master
