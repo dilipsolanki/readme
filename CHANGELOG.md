@@ -2,6 +2,7 @@
 
 ## v8.6.1 🌈 (01/01/1970)
 ## Changes
+- Update Changelog @github-actions (#158)
 - Update Changelog.yml @dilipsolanki (#157)
 - Update Changelog.yml @dilipsolanki (#155)
 - Update .env @dilipsolanki (#154)
