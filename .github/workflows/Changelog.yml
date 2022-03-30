@@ -1,8 +1,8 @@
 name: "update changelog"
-on:
-  schedule:
-     # At everyon: 5th minute
-    - cron: '*/15 * * * *'
+# on:
+#   schedule:
+#      At everyon: 5th minute
+#     - cron: '*/15 * * * *'
 jobs:
 #   update-changelog:
 #     runs-on: ubuntu-latest
