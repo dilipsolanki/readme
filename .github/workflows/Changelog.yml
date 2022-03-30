@@ -17,4 +17,5 @@ jobs:
 
     - name: Update changelog
       run: |
+        npm install github-release-notes -g
         gren changelog --override
