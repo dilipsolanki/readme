@@ -9,28 +9,14 @@ on:
     branches:
       - master
 jobs:
-  changelog:
+  publish_draft_release_on_version_bump:
     runs-on: ubuntu-latest
     steps:
-      - name: 🔍 GH_TOKEN
-        if: env.GH_TOKEN == ''
-        env: 
+      # Does a checkout of your repository at the pushed commit SHA
+      - uses: actions/checkout@v1
+      # Checks for a version bump to publish an existing Draft Release
+      - uses: JamesMGreene/node-draft-releaser@v1
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: echo "GH_TOKEN=${GITHUB_TOKEN}" >> $GITHUB_ENV
-
-      - name: 🤘 checkout
-        uses: actions/checkout@v2
         with:
-          fetch-depth: 0
-          ref: main
-          token: ${{ env.GH_TOKEN }}
-
-      - name: ⚙ ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.0.3
-
-      - name: ⚙ changelog
-        run: |
-          gem install github_changelog_generator 
-          github_changelog_generator --user ${GITHUB_REPOSITORY%/*} --project ${GITHUB_REPOSITORY##*/} --token ${{ secrets.GITHUB_TOKEN }} --o changelog.md --config-file .github/.github_changelog_generator
+          allow_unmatched_draft_tag: 'false'  # default value = 'true'
