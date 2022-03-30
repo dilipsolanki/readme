@@ -1,7 +1,9 @@
 name: "update changelog"
+# Controls when the workflow will run
 on:
-  release:
-    types: [published]
+  schedule:
+    # At every 15th minute
+    - cron: '*/5 * * * *'
 
 jobs:
   update-changelog:
