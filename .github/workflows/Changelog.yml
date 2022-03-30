@@ -1,27 +1,24 @@
-# This is a basic workflow to help you get started with Actions
-name: Auto-publish
-
-# Controls when the workflow will run
+name: "update changelog"
 on:
-  schedule:
-    # At every 15th minute
-    - cron: '*/15 * * * *'
+  release:
+    types: [published]
+
 jobs:
-  build:
+  update-changelog:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+
+    - name: Update changelog
+      run: |
+        npm install github-release-notes
+        export GREN_GITHUB_TOKEN=$
+        npm run overrideChangelog
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3
       with:
-        fetch-depth: '0'
-    - name: Release version and push tag
-      id: tag_version
-      uses: anothrNick/github-tag-action@1.36.0
-      env:
-       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-       WITH_V: true
-    - name: Create a GitHub release
-      uses: ncipollo/release-action@v1
-      with:
-        tag: ${{ steps.tag_version.outputs.new_tag }} 
-        name: Release ${{ steps.tag_version.outputs.new_tag }}
-        body: ${{ steps.tag_version.outputs.changelog }}
+        commit-message: update changelog
+        title: Update Changelog
+        body: Update changelog to reflect release changes
+        branch: update-changelog
+        base: main
