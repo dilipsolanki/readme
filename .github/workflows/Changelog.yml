@@ -5,9 +5,8 @@ name: "update changelog"
 #     - cron: '*/5 * * * *'
 on:
   push:
-    # branches to consider in the event; optional, defaults to all
-    branches:
-      - master
+    tags:
+            - 'v*.*.*'
 jobs:
     deploy:
         runs-on: ubuntu-latest
