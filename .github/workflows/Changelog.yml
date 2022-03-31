@@ -6,8 +6,8 @@ on:
 #     push:
 #       branches:
 #         - master 
-#     release:
-#       types: [published]
+ release:
+      types: [published]
 #  schedule:
 # # #      At everyon: 15th minute
 #      - cron: '*/5 * * * *'
