@@ -1,22 +1,13 @@
 name: "update changelog"
 on:
-  push:
- #branches to consider in the event; optional, defaults to all
-    branches:
-      - master 
-#   schedule:
-#      At everyon: 5th minute
-#     - cron: '*/15 * * * *'
+    schedule:
+#      At everyon: 15th minute
+      - cron: '*/5 * * * *'
+      #   push:
+#  #branches to consider in the event; optional, defaults to all
+#     branches:
+#       - master 
 jobs:
-#   update-changelog:
-#     runs-on: ubuntu-latest
-#     steps:
-#     - uses: actions/checkout@v2
-#     - name: Update changelog
-#       run: |
-#         npm install github-release-notes
-#         export GREN_GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
-#         npm run overrideChangelog
   release:
     name: Check and Release New Version
     runs-on: ubuntu-latest
