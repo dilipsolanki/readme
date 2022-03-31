@@ -3,11 +3,11 @@ on:
 #     push:
 #       branches:
 #         - master 
-    release:
-      types: [published]
-#     schedule:
-# #      At everyon: 15th minute
-#       - cron: '*/5 * * * *'
+#     release:
+#       types: [published]
+    schedule:
+#      At everyon: 15th minute
+      - cron: '*/5 * * * *'
 jobs:
   release:
     name: Check and Release New Version
