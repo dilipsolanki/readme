@@ -7,9 +7,9 @@ on:
 #         - master 
 #     release:
 #       types: [published]
- schedule:
-#      At everyon: 15th minute
-  - cron: '*/5 * * * *'
+#  schedule:
+# #      At everyon: 15th minute
+#   - cron: '*/5 * * * *'
       
 jobs:
   release:
