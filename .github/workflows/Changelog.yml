@@ -4,8 +4,8 @@ on:
   tags:
    - 'v*'
 #     push:
-  branches:
-        - master 
+#   branches:
+#         - master 
  release:
       types: [published]
 #  schedule:
