@@ -1,34 +1,55 @@
 name: "update changelog"
 on:
+ push:
+  tags:
+   - 'v*'
 #     push:
 #       branches:
 #         - master 
 #     release:
 #       types: [published]
-    schedule:
+ schedule:
 # #      At everyon: 15th minute
      - cron: '*/5 * * * *'
-    release:
-      types: [published]
 jobs:
-  update-changelog:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
+    build:
+      name: Create Release
 
-    - name: Update changelog
-      run: |
-        npm install github-release-notes
-        export GREN_GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
-        npm run overrideChangelog
-    - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v3
-      with:
-        commit-message: update changelog
-        title: Update Changelog
-        body: Update changelog to reflect release changes
-        branch: update-changelog
-        base: master
+      runs-on: ubuntu-latest
+        
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+            
+        - name: Create Release
+          id: create_release
+          uses: actions/create-release@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          with:
+            tag_name: ${{ github.ref }}
+            release_name: Release ${{ github.ref }}
+            draft: false
+            prerelease: false
+# jobs:
+#   update-changelog:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - uses: actions/checkout@v2
+
+#     - name: Update changelog
+#       run: |
+#         npm install github-release-notes
+#         export GREN_GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
+#         npm run overrideChangelog
+#     - name: Create Pull Request
+#       uses: peter-evans/create-pull-request@v3
+#       with:
+#         commit-message: update changelog
+#         title: Update Changelog
+#         body: Update changelog to reflect release changes
+#         branch: update-changelog
+#         base: master
         
 # jobs:
 #   release:
