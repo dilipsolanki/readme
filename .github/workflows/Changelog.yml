@@ -9,41 +9,27 @@ on:
 # #      At everyon: 15th minute
   - cron: '*/5 * * * *'
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  update:
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v2
-      
-      - name: Get current timestamp
-        id: datetime
-        run: echo "::set-output name=datetime::$(date +%Y-%m-%d-T%H:%M:%S%z)"
-
-
-      - name: Publish the latest draft
-        uses: release-drafter/release-drafter@v5
         with:
-          publish: true
-          tag: ${{ github.event.inputs.release }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ref: main
 
-
-      - name: Update GitHub Release
-        uses: tubone24/update_release@v1.3.1
+      - name: Update Changelog
+        uses: stefanzweifel/changelog-updater-action@v1
         with:
-          is_append_body: true
-          body: |
-            ---
-            Deployed on ${{ steps.datetime.outputs.datetime }} by [@${{ github.actor }}](https://github.com/${{ github.actor }}).
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG_NAME: ${{ github.event.inputs.release }}
+          latest-version: ${{ github.event.release.name }}
+          release-notes: ${{ github.event.release.body }}
+
+      - name: Commit updated CHANGELOG
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: main
+          commit_message: Update CHANGELOG
+          file_pattern: CHANGELOG.md
 # jobs:
 #   release:
 #     name: Check and Release New Version
