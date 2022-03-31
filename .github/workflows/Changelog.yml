@@ -23,12 +23,15 @@ jobs:
 
       # Validate and publish draft version
       - name: Publish 
-        run: echo 'publish your draft version'
-
-      - name: Release Draft Version
-        uses: release-drafter/release-drafter@v5
-        with:
-          publish: true
-          tag: ${{ github.event.release.tag_name }}
+      - uses: eregon/publish-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         run: echo 'publish your draft version'
+
+#       - name: Release Draft Version
+#         uses: release-drafter/release-drafter@v5
+#         with:
+#           publish: true
+#           tag: ${{ github.event.release.tag_name }}
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
