@@ -1,10 +1,10 @@
 name: "update changelog"
 on:
-    push:
-      branches:
-        - master 
-# #     release:
-# #       types: [published]
+#     push:
+#       branches:
+#         - master 
+    release:
+      types: [published]
 #     schedule:
 # #      At everyon: 15th minute
 #       - cron: '*/5 * * * *'
