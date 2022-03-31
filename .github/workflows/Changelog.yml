@@ -9,24 +9,32 @@ on:
 #      At everyon: 15th minute
       - cron: '*/5 * * * *'
 jobs:
-  build:
+  changelog_prerelease:
+    name: Update Changelog
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: '0'
-    - name: Release version and push tag
-      id: tag_version
-      uses: anothrNick/github-tag-action@1.36.0
-      env:
-       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-       WITH_V: true
-    - name: Create a GitHub release
-      uses: ncipollo/release-action@v1
-      with:
-        tag: ${{ steps.tag_version.outputs.new_tag }}
-        name: Release ${{ steps.tag_version.outputs.new_tag }}
-        body: ${{ steps.tag_version.outputs.changelog }}
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Use Node.js 12
+        uses: actions/setup-node@v1
+      - name: Update Changelog
+        uses: heinrichreimer/github-changelog-generator-action@v2.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issues: true
+          issuesWoLabels: true
+          pullRequests: true
+          prWoLabels: true
+          unreleased: true
+          addSections: '{"documentation":{"prefix":"**Documentation:**","labels":["documentation"]}}'
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update Changelog for PR
+          file_pattern: CHANGELOG.md
 # jobs:
 #   release:
 #     name: Check and Release New Version
