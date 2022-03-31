@@ -1,5 +1,9 @@
 name: "update changelog"
-# on:
+on:
+  push:
+ #branches to consider in the event; optional, defaults to all
+    branches:
+      - master 
 #   schedule:
 #      At everyon: 5th minute
 #     - cron: '*/15 * * * *'
