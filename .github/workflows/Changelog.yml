@@ -9,32 +9,40 @@ on:
 #      At everyon: 15th minute
       - cron: '*/5 * * * *'
 jobs:
-  changelog_prerelease:
-    name: Update Changelog
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
-          ref: master
-          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: npm
+          registry-url: https://registry.npmjs.org
 
-      - name: Use Node.js 12
-        uses: actions/setup-node@v1
-      - name: Update Changelog
-        uses: heinrichreimer/github-changelog-generator-action@v2.1.1
+      - name: npm install
+        run: npm install --frozen-lockfile
+
+      - name: npm test
+        run: npm test
+      - name: version
+        id: version
+        run: |
+          tag=${GITHUB_REF/refs\/tags\//}
+          version=${tag#v}
+          major=${version%%.*}
+          echo "::set-output name=tag::${tag}"
+          echo "::set-output name=version::${version}"
+          echo "::set-output name=major::${major}"
+      - uses: release-drafter/release-drafter@master
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          issues: true
-          issuesWoLabels: true
-          pullRequests: true
-          prWoLabels: true
-          unreleased: true
-          addSections: '{"documentation":{"prefix":"**Documentation:**","labels":["documentation"]}}'
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Update Changelog for PR
-          file_pattern: CHANGELOG.md
+          version: ${{ steps.version.outputs.version }}
+          publish: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 # jobs:
 #   release:
 #     name: Check and Release New Version
