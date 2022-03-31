@@ -8,9 +8,9 @@ on:
     schedule:
 #      At everyon: 15th minute
       - cron: '*/5 * * * *'
-    push:
-        branches:
-          - master 
+    release:
+        types:
+          - published 
 jobs:
   release:
     name: Check and Release New Version
