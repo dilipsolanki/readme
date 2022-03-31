@@ -1,16 +1,15 @@
 name: "update changelog"
 on:
+ workflow_dispatch:
 #     push:
 #       branches:
 #         - master 
 #     release:
 #       types: [published]
-    schedule:
+ schedule:
 #      At everyon: 15th minute
-      - cron: '*/5 * * * *'
-    release:
-        types:
-          - published 
+  - cron: '*/5 * * * *'
+      
 jobs:
   release:
     name: Check and Release New Version
