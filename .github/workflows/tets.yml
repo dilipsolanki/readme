@@ -29,7 +29,6 @@ jobs:
         id: datetime
         run: echo "::set-output name=datetime::$(date +%Y-%m-%d-T%H:%M:%S%z)"
 
-
       - name: Publish the latest draft
         uses: release-drafter/release-drafter@v5
         with:
@@ -37,8 +36,7 @@ jobs:
           tag: ${{ github.event.inputs.release }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
+          
       - name: Update GitHub Release
         uses: tubone24/update_release@v1.3.1
         with:
