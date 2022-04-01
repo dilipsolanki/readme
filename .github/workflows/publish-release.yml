@@ -46,4 +46,4 @@ jobs:
             Deployed on ${{ steps.datetime.outputs.datetime }} by [@${{ github.actor }}](https://github.com/${{ github.actor }}).
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG_NAME: ${{ github.event.inputs.release }
+          TAG_NAME: ${{ github.event.inputs.release }}
