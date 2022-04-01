@@ -13,17 +13,18 @@ on:
 # # # #      At everyon: 15th minute
 #      - cron: '*/5 * * * *'
 jobs:
-   release:
-     name: Check and Release New Version
-     runs-on: ubuntu-latest
-     steps:
-      - name: Checkout Code
+  build:
+    name: Build release binary
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      # Parse the release version from git tag
-      - name: Get release version from tag
-        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+      - name: Get release
+        id: get_release
+        uses: agners/get-draft-release@v0.1.0
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
 
 # jobs:
 #    release:
