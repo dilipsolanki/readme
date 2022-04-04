@@ -1,112 +1,109 @@
 {
-  "stats": {
-    "suites": 0,
-    "tests": 2,
-    "passes": 1,
-    "pending": 0,
-    "failures": 1,
-    "start": "2022-02-17T04:48:01.176Z",
-    "end": "2022-02-17T04:49:12.851Z",
-    "duration": 71675,
-    "testsRegistered": 2,
-    "passPercent": 50,
-    "pendingPercent": 0,
-    "other": 0,
-    "hasOther": false,
-    "skipped": 0,
-    "hasSkipped": false
-  },
-  "results": [
-    {
-      "uuid": "675524cf-678c-4d6c-8ff6-4c615020e9c0",
-      "title": "",
-      "fullFile": "cypress/integration/Tools/Live/scholarcy.spec.js",
-      "file": "cypress/integration/Tools/Live/scholarcy.spec.js",
-      "beforeHooks": [],
-      "afterHooks": [],
-      "tests": [
-        {
-          "title": "Welcome at Global Cactus Landing Page",
-          "fullTitle": "Welcome at Global Cactus Landing Page",
-          "timedOut": null,
-          "duration": 4004,
-          "state": "passed",
-          "speed": "fast",
-          "pass": true,
-          "fail": false,
-          "pending": false,
-          "context": null,
-          "code": "cy.wait(200);",
-          "err": {},
-          "uuid": "33accd61-f4ab-4c2f-bac7-962cda8e3818",
-          "parentUUID": "675524cf-678c-4d6c-8ff6-4c615020e9c0",
-          "isHook": false,
-          "skipped": false
+    "stats": {
+        "suites": 0,
+        "tests": 2,
+        "passes": 2,
+        "pending": 0,
+        "failures": 0,
+        "start": "2022-02-17T08:15:26.380Z",
+        "end": "2022-02-17T08:16:38.517Z",
+        "duration": 72137,
+        "testsRegistered": 2,
+        "passPercent": 100,
+        "pendingPercent": 0,
+        "other": 0,
+        "hasOther": false,
+        "skipped": 0,
+        "hasSkipped": false
+    },
+    "results": [{
+        "uuid": "7c2a0eb1-f329-4fb7-b852-27ddfcc42cbd",
+        "title": "",
+        "fullFile": "cypress/integration/Tools/Live/scholarcy.spec.js",
+        "file": "cypress/integration/Tools/Live/scholarcy.spec.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [{
+                "title": "Welcome at Global Cactus Landing Page",
+                "fullTitle": "Welcome at Global Cactus Landing Page",
+                "timedOut": null,
+                "duration": 4053,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "context": null,
+                "code": "cy.wait(200);",
+                "err": {},
+                "uuid": "a426496d-4c9e-4729-8866-05438ffea0ab",
+                "parentUUID": "7c2a0eb1-f329-4fb7-b852-27ddfcc42cbd",
+                "isHook": false,
+                "skipped": false
+            },
+            {
+                "title": "Select tool of Scholarcy",
+                "fullTitle": "Select tool of Scholarcy",
+                "timedOut": null,
+                "duration": 63883,
+                "state": "passed",
+                "speed": null,
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"/Tools/Live/scholarcy.spec.js/Select tool of Scholarcy (failed).png\"\n      }\n    ]\n  ]\n}",
+                "code": "cy.visit('dashboard');\ncy.get(':nth-child(10) > .h-full > .relative > .absolute > div > .flex > span').click().should('have.length', 1);\ncy.wait(500);",
+                "err": {
+                    "message": "AssertionError: Timed out retrying after 60000ms: Expected to find element: `:nth-child(10) > .h-full > .relative > .absolute > div > .flex > span`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 60000ms: Expected to find element: `:nth-child(10) > .h-full > .relative > .absolute > div > .flex > span`, but never found it.\n    at Context.eval (http://127.0.0.1:8000/__cypress/tests?p=cypress/integration/Tools/Live/scholarcy.spec.js:127:6)",
+                    "diff": null
+                },
+                "uuid": "25c12e1f-cb5a-46af-917f-bf0cd9f1de99",
+                "parentUUID": "7c2a0eb1-f329-4fb7-b852-27ddfcc42cbd",
+                "isHook": false,
+                "skipped": false
+            }
+        ],
+        "suites": [],
+        "passes": [
+            "a426496d-4c9e-4729-8866-05438ffea0ab"
+        ],
+        "failures": [
+            "25c12e1f-cb5a-46af-917f-bf0cd9f1de99"
+        ],
+        "pending": [],
+        "skipped": [],
+        "duration": 67936,
+        "root": true,
+        "rootEmpty": false,
+        "_timeout": 2000
+    }],
+    "meta": {
+        "mocha": {
+            "version": "7.0.1"
         },
-        {
-          "title": "Select tool of Scholarcy",
-          "fullTitle": "Select tool of Scholarcy",
-          "timedOut": null,
-          "duration": 63732,
-          "state": "failed",
-          "speed": null,
-          "pass": false,
-          "fail": true,
-          "pending": false,
-          "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"/Tools/Live/scholarcy.spec.js/Select tool of Scholarcy (failed).png\"\n      }\n    ]\n  ]\n}",
-          "code": "cy.visit('dashboard');\ncy.get(':nth-child(10) > .h-full > .relative > .absolute > div > .flex > span').click().should('have.length', 1);\ncy.wait(500);",
-          "err": {
-            "message": "AssertionError: Timed out retrying after 60000ms: Expected to find element: `:nth-child(10) > .h-full > .relative > .absolute > div > .flex > span`, but never found it.",
-            "estack": "AssertionError: Timed out retrying after 60000ms: Expected to find element: `:nth-child(10) > .h-full > .relative > .absolute > div > .flex > span`, but never found it.\n    at Context.eval (http://127.0.0.1:8000/__cypress/tests?p=cypress/integration/Tools/Live/scholarcy.spec.js:127:6)",
-            "diff": null
-          },
-          "uuid": "af328190-b0fd-4987-95e3-dab6595dc585",
-          "parentUUID": "675524cf-678c-4d6c-8ff6-4c615020e9c0",
-          "isHook": false,
-          "skipped": false
+        "mochawesome": {
+            "options": {
+                "quiet": false,
+                "reportFilename": "mochawesome",
+                "saveHtml": false,
+                "saveJson": true,
+                "consoleReporter": "spec",
+                "useInlineDiffs": false,
+                "code": true
+            },
+            "version": "7.0.1"
+        },
+        "marge": {
+            "options": {
+                "reportDir": "cypress/reports",
+                "charts": true,
+                "reportPageTitle": "custom-title",
+                "overwrite": false,
+                "html": false,
+                "json": true
+            },
+            "version": "6.0.1"
         }
-      ],
-      "suites": [],
-      "passes": [
-        "33accd61-f4ab-4c2f-bac7-962cda8e3818"
-      ],
-      "failures": [
-        "af328190-b0fd-4987-95e3-dab6595dc585"
-      ],
-      "pending": [],
-      "skipped": [],
-      "duration": 67736,
-      "root": true,
-      "rootEmpty": false,
-      "_timeout": 2000
     }
-  ],
-  "meta": {
-    "mocha": {
-      "version": "7.0.1"
-    },
-    "mochawesome": {
-      "options": {
-        "quiet": false,
-        "reportFilename": "mochawesome",
-        "saveHtml": false,
-        "saveJson": true,
-        "consoleReporter": "spec",
-        "useInlineDiffs": false,
-        "code": true
-      },
-      "version": "7.0.1"
-    },
-    "marge": {
-      "options": {
-        "reportDir": "cypress/reports",
-        "charts": true,
-        "reportPageTitle": "custom-title",
-        "overwrite": false,
-        "html": false,
-        "json": true
-      },
-      "version": "6.0.1"
-    }
-  }
 }

@@ -20,4 +20,5 @@ module.exports = (on, config) => {
     // `config` is the resolved Cypress config
 
     on('task', require('./swap-env'));
+    require('cypress-mochawesome-reporter/plugin')(on);
 };
