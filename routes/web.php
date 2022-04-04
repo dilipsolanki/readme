@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
