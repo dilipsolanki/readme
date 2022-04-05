@@ -25,9 +25,6 @@ before(() => {
 after(() => {
     cy.task('activateLocalEnvFile', {}, { log: false });
     cy.artisan('config:clear', {}, { log: false });
-<<<<<<< HEAD
-});
-=======
 });
 
 Cypress.on('uncaught:exception', () => {
@@ -38,4 +35,3 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from failing the test
     return false
 })
->>>>>>> d2a828839c131df76c188b108934d329593fce71
