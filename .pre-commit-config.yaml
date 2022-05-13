@@ -1,0 +1,6 @@
+---
+repos:
+  - repo: local
+    hooks:
+      - id: commitizen
+        stages: [prepare-commit-msg]
